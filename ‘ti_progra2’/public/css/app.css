@@ -1,16 +1,16 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Raleway:wght@700&family=Roboto:wght@100&family=Tac+One&family=Work+Sans&display=swap');
 
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
+  --yellow: #ec67bb;
+  --dark-blue: #12578d;
+  --light-blue: #66bed4;
   --gray: #666666;
   --light-gray: #ebebeb;
-  --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --green: #1c6726;
+  --base-font-family: "Oswald", sans-serif;
 }
 
 
