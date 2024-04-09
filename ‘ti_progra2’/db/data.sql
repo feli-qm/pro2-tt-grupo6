@@ -1,5 +1,8 @@
 CREATE SCHEMA myapp;
 
+
+/* usuarios */
+
 USE myapp;
 
 CREATE TABLE usuarios (
@@ -14,4 +17,37 @@ CREATE TABLE usuarios (
     createdAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP,
     updatedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt			TIMESTAMP		NULL
+);
+
+
+
+/* productos */
+USE myapp;
+
+CREATE TABLE productos (
+/* 	nombreColumna 		tipoDato 		Restricciones */
+	id					INT				UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    idUsuario			INT 			NOT NULL,
+    nombreImgProducto	VARCHAR(300) 	NOT NULL,
+    nombreProducto		VARCHAR(250) 	NOT NULL,
+    descProducto		VARCHAR(500) 	NOT NULL,
+    createdAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP,
+    updatedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt			TIMESTAMP		NULL
+);
+
+
+
+/* comentarios */
+USE myapp;
+
+CREATE TABLE comentarios (
+/* 	nombreColumna 		tipoDato 		Restricciones */
+id					INT				UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+idPost				INT				NOT NULL,
+idUsuario			INT				NOT NULL,
+textoComent			VARCHAR(500)	NOT NULL,
+createdAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP,
+updatedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+deletedAt			TIMESTAMP		NULL
 );
