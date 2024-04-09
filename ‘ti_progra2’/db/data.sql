@@ -2,9 +2,6 @@ CREATE SCHEMA myapp;
 
 
 /* usuarios */
-
-USE myapp;
-
 CREATE TABLE usuarios (
 /* 	nombreColumna 		tipoDato 		Restricciones */
 	id					INT				UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -22,8 +19,6 @@ CREATE TABLE usuarios (
 
 
 /* productos */
-USE myapp;
-
 CREATE TABLE productos (
 /* 	nombreColumna 		tipoDato 		Restricciones */
 	id					INT				UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -39,7 +34,6 @@ CREATE TABLE productos (
 
 
 /* comentarios */
-USE myapp;
 
 CREATE TABLE comentarios (
 /* 	nombreColumna 		tipoDato 		Restricciones */
