@@ -10,5 +10,4 @@ router.get('/product', function(req, res, next) { //el next va??//
 });
 
 //exportar ruteador//
-
 module.exports = router;
