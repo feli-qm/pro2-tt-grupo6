@@ -17,7 +17,7 @@ const data={
                     {
                         nombreUsuario: "Valen123",
                         textoComentario: "Este corrector líquido es mi salvavidas. Cubre perfectamente mis ojeras sin verse pesado.",
-                        imagenPerfil: "./public/products/default-image.png" //HAY QUE CAMBIAR LA RUTA DE IMGS
+                        imagenPerfil: "./public/products/img-cafetera-moulinex.png" //HAY QUE CAMBIAR LA RUTA DE IMGS
                     },
                     {
                         nombreUsuario: "Feli99",
