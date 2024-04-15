@@ -4,7 +4,7 @@ const products = require('../db/products');
 //crear el modulo en si
 const indexController= {
     index: function(req, res) {
-        return res.render('index'); 
+        return res.render('index');           //el return va??
     },
     search: function(req, res) {             //como se si va search o las palabras por default? o es lo mismo?
         return res.render('search-results');
