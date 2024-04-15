@@ -7,6 +7,7 @@ const productsController= require("../controllers/productsController");
 /* GET users listing. */
 router.get('/', productsController.index);
 router.get('/product', productsController.add);     //preguntar en clase si es /product//
+router.get('/product/add', productsController.add); 
 
 //exportar ruteador//
 module.exports = router;

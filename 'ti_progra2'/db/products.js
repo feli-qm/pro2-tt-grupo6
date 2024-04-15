@@ -1,9 +1,9 @@
 const products = {
     usuario: {
-        email: "juanamancurti@gmail.com", //COINCIDIR CON EL FORMULARIO DE REGISTRO
+        email: "juanamancurti@gmail.com", 
         usuario: "juamancurti",
         contrasenia: "secreto123",
-        fechaNacimiento: "1990-08-25",      // esta bien el formato???
+        fechaNacimiento: "1990-08-25",      
         numeroDocumento: 46213457,
         fotoPerfil: "https://cdn-icons-png.flaticon.com/512/1361/1361728.png"     //puede ser online o tiene que estar en carpeta public??
     },
