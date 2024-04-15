@@ -80,4 +80,14 @@ VALUES (DEFAULT, 4, "rubor.jpg", "Rubor en polvo", "Rubor en polvo altamente pig
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
 VALUES (DEFAULT, 5, "labial_mate.jpg", "Labial mate", "Labial mate de larga duración con una fórmula hidratante que no reseca los labios.", DEFAULT, DEFAULT, NULL);
 
-
+CREATE TABLE comentarios (
+/* 	nombreColumna 		tipoDato 		Restricciones */
+    id 					INT 			UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    idPost				INT				UNSIGNED,
+    idUsuario			INT				UNSIGNED,
+	comentario 			VARCHAR(250) 	NOT NULL,
+    createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
+    updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt 			TIMESTAMP 		NULL,
+    
+    );
