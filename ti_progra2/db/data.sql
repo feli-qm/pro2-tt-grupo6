@@ -90,5 +90,7 @@ CREATE TABLE comentarios (
     createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
     updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt 			TIMESTAMP 		NULL,
-       
+   
+    FOREIGN KEY (idUsuario) REFERENCES usuarios(id),
+    FOREIGN KEY (idPost) REFERENCES productos(id)
     );
