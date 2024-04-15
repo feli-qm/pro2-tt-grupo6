@@ -10,7 +10,7 @@ const usersController = {
         res.render('register');
       },
     perfil: function(req, res, next) {
-        res.render('profile', {perfil: products.usuario},{productoEncontrado: products.productos[0]});
+        res.render('profile', {perfil: products.usuario, productoEncontrado: products.productos[0]});
       },
       edicionPerfil: function(req, res, next) {
         res.render('profile-edit');                //sumamos tmb /users solo?    y users/
