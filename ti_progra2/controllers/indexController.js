@@ -1,5 +1,5 @@
 //importar info que voy a usar en este modulo
-const products = require('../db/products');
+const products = require('../db/data');
 
 //crear el modulo en si
 const indexController= {
