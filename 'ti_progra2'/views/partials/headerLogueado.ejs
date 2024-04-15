@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-7 col-md-6">
-                <form action="/search-results" method="GET" class="search-form">
+                <form action="" method="GET" class="search-form">
                     <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
                     <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
                 </form>
@@ -29,12 +29,12 @@
 
         <nav class="main-navbar">
             <ul class="left-navbar">
-                <li><a href="/products/product">Todos los productos</a></li>
-                <!-- solo logueado <li><a href="">Cargar productos</a></li> -->
+                <li><a href="/">Todos los productos</a></li>
+                <li><a href="/product">Cargar productos</a></li> 	<!-- aca va /products???? -->
             </ul>
 
-            <ul class="right-navbar">       <!-- esto que onda en formato comentario???">-->
-                <!-- Solo logueado <li><a href="/profile">
+            <ul class="right-navbar">
+                <li><a href="profile">
                         Nombre del usuario <i class="fas fa-user"></i>
                     </a>
                 </li>
@@ -44,17 +44,16 @@
                             Cerrar sesión <i class="fas fa-sign-in-alt"></i>
                         </button>
                     </form>
-                </li> -->
-                <li>
-                    <a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
+                </li>
+                <!-- Solo deslogueado <li>
+                    <a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-                </li>
+                    <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+                </li> -->
             </ul>
         </nav>
     </div>
 </header>
 <!-- /Header -->
-
