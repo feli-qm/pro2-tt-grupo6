@@ -5,9 +5,11 @@ const products = require('../db/products');
 const indexController= {
     index: function(req, res) {
         return res.render('index'); 
-    }};
-
-    //Aca iria el search
+    },
+    search: function(req, res) {             //como se si va search o las palabras por default? o es lo mismo?
+        return res.render('search-results');
+    },
+};
 
 //exportar el modulo
-module.exports = indexController;  
+module.exports = indexController;
