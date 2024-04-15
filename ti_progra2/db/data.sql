@@ -94,3 +94,93 @@ CREATE TABLE comentarios (
     FOREIGN KEY (idUsuario) REFERENCES usuarios(id),
     FOREIGN KEY (idPost) REFERENCES productos(id)
     );
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 1, 1, "Este corrector líquido es mi salvavidas. Cubre perfectamente mis ojeras sin verse pesado.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 1, 2, "¿Alguien sabe si este corrector líquido funciona bien en pieles grasas?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 1, 3, "¡Definitivamente mi corrector favorito! Cubre todas mis imperfecciones y dura todo el día.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 2, 1, "¡Esta máscara de pestañas es increíble! Mis pestañas lucen más largas y voluminosas al instante.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 2, 2, "¿Alguien ha tenido problemas de grumos con esta máscara de pestañas?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 2, 3, "Me encanta cómo esta máscara define mis pestañas sin apelmazarlas. ¡Es impresionante!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 3, 1, "¡Este brillo labial es perfecto para dar un toque de brillo a cualquier look de maquillaje!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 3, 2, "¿Alguien más ha notado que este brillo labial tiende a desaparecer rápidamente?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 3, 3, "¡Amo este brillo! No es pegajoso y deja mis labios suaves y brillantes durante horas.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 4, 1, "¡Este iluminador es increíble! Me encanta cómo resalta mi piel y le da un brillo natural.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 4, 2, "¿Alguien más ha tenido problemas de brillos excesivos con este iluminador?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 4, 3, "El brillo que da este iluminador es espectacular. ¡Es mi nuevo imprescindible!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 5, 1, "¡Este esmalte de uñas es fantástico! Los colores son vibrantes y la fórmula dura mucho tiempo sin descascararse.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 5, 2, "¿Alguien ha probado la durabilidad de estos esmaltes en uñas débiles?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 5, 3, "¡Me encanta la variedad de colores! Son perfectos para cualquier ocasión.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 6, 1, "¡Esta paleta es increíble! Los colores son muy pigmentados y se mezclan fácilmente.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 6, 2, "¿Alguien ha probado la durabilidad de estas sombras? Me encantaría saber si aguantan todo el día", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 6, 3, "¡Esta paleta es un sueño para cualquier amante del maquillaje! Los tonos son perfectos y la pigmentación es excelente", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 7, 1, "Esta base de maquillaje es mi favorita. ¡Deja mi piel impecable durante horas!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 7, 2, "¿Alguien sabe si esta base de maquillaje es apta para pieles sensibles?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 7, 3, "¡No puedo vivir sin esta base! La cobertura es perfecta y se mantiene intacta todo el día", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 8, 1, "¡Este rubor es perfecto para dar un toque de color natural a mis mejillas!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 8, 2, "¿Alguien ha probado este rubor en pieles de tono más oscuro? Me pregunto si se verá tan bien en mí.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 8, 3, "El tono de este rubor es simplemente hermoso. ¡Lo uso todos los días!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 9, 1, "¡Este labial mate es mi nuevo favorito! El color es hermoso y dura todo el día sin resecar mis labios.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 9, 2, "¿Alguien más ha tenido problemas con la durabilidad de este labial mate? No parece durar tanto como dicen.", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 9, 3, "Este labial mate es increíblemente pigmentado y no reseca los labios. ¡Lo amo!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 10, 1, "¡Este delineador líquido es genial para crear un delineado de ojos alado perfecto!", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 10, 2, "¿Alguien tiene algún consejo para aplicar este delineador sin que se corra?", DEFAULT, DEFAULT, NULL);
+
+INSERT INTO comentarios (id, idPost, idUsuario, comentario, createdAt, updatedAt, deletedAt)
+VALUES (DEFAULT, 10, 3, "¡Este delineador es mi salvación para un cat-eye perfecto! La punta es precisa y el color es intenso.", DEFAULT, DEFAULT, NULL);
