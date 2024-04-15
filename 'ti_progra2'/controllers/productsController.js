@@ -1,7 +1,7 @@
 const data = require('../db/data');
 
-const productController= {
+const productsController= {
     index: function(req, res) {
         return res.render("productos",{lista: data.productos}); 
     }};
-module.exports= productController;
+module.exports= productsController;
