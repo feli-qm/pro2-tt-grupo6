@@ -1,4 +1,4 @@
-const data={
+const products={
     usuario : {
         email: "juanamancurti@gmail.com", //COINCIDIR CON EL FORMULARIO DE REGISTRO
         usuario: "juamancurti",
@@ -190,4 +190,4 @@ const data={
             // Agrega más productos de maquillaje aquí...
         ]
     };
-    module.exports= data;
+    module.exports= products;

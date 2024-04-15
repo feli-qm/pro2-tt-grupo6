@@ -1,13 +1,13 @@
 //importar info que voy a usar en este modulo
-const data = require('../db/data');
+const products = require('../db/products');
 
 //crear el modulo en si
-const dataController= {
+const indexController= {
     index: function(req, res) {
-        return res.render("usuario",{lista: data.usuario}); 
+        return res.render('index'); 
     }};
 
     //Aca iria el search
 
 //exportar el modulo
-module.exports = dataController;
+module.exports = indexController;  
