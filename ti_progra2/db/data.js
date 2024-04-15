@@ -12,17 +12,17 @@ const products = {
             nombre: "Corrector líquido",
             descripcion: "Corrector líquido de alta cobertura para ocultar imperfecciones y ojeras.",
             precio: 17.99,
-            imagen: "/img/productos/corrector.jpg",
+            imagen: "/images/products/corrector.png",
             comentarios: [
                 {
                     nombreUsuario: "Valen123",
                     textoComentario: "Este corrector líquido es mi salvavidas. Cubre perfectamente mis ojeras sin verse pesado.",
-                    imagenPerfil: "./public/products/img-cafetera-moulinex.png" //HAY QUE CAMBIAR LA RUTA DE IMGS
+                    imagenPerfil: "/images/users/mujer.png" //HAY QUE CAMBIAR LA RUTA DE IMGS
                 },
                 {
                     nombreUsuario: "Feli99",
                     textoComentario: "¿Alguien sabe si este corrector líquido funciona bien en pieles grasas?",
-                    imagenPerfil: "/img/perfiles/coveruplover.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
