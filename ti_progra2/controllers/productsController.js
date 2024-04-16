@@ -2,14 +2,14 @@
 const products = require('../db/data');
 
 //crear el modulo en si
-const productsController= {
-    index: function(req, res) {             //el next va??//
-        return res.render('product' , {productoEncontrado: products.productos[0]}); 
+const productsController = {
+    index: function (req, res) {             //el next va??//
+        return res.render('product', { productoEncontrado: products.productos[0] });
     },
-    add: function(req,res) {
+    add: function (req, res) {
         return res.render('product-add');   //sumamos tmb products/indexhtml? (logo)
     }
 };
-   
+
 //exportar el modulo
-module.exports= productsController;
+module.exports = productsController;

@@ -1,9 +1,9 @@
 const products = {
     usuario: {
-        email: "juanamancurti@gmail.com", 
+        email: "juanamancurti@gmail.com",
         usuario: "juamancurti",
         contrasenia: "secreto123",
-        fechaNacimiento: "1990-08-25",      
+        fechaNacimiento: "1990-08-25",
         numeroDocumento: 46213457,
         fotoPerfil: "/images/users/mujer2.jpg"     //puede ser online o tiene que estar en carpeta public??
     },

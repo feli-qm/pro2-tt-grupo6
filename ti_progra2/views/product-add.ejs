@@ -2,30 +2,31 @@
 <html lang="es">
 <%- include("./partials/head") %>
 
-<body>
-<%- include("./partials/headerLogueado") %>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> 
-				<form action="/products/product" method="get"> <!-- Ingresamos la ruta para que no se rompa al enviar el form -->
-					<label for="imagen">Imagen:</label>
-					<input type="file" id="imagen" name="imagen" required><br><br>
-					
-					<label for="nombreProducto">Nombre del producto:</label>
-					<input type="text" id="nombreProducto" name="nombreProducto" required><br><br>
-					
-					<label for="descripcion">Descripción:</label>
-					<input type="text" id="descripcion" name="descripcion" required><br><br>
-					
-					<button type="submit">Enviar</button>
-					</form>
-			</h2>
-		<%- include("./partials/footer") %>
-</body>
+	<body>
+		<%- include("./partials/headerLogueado") %>
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Agregar productos</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<h2 class="col-12">
+						<form action="/products/product" method="get">
+							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
+							<label for="imagen">Imagen:</label>
+							<input type="file" id="imagen" name="imagen" required><br><br>
+
+							<label for="nombreProducto">Nombre del producto:</label>
+							<input type="text" id="nombreProducto" name="nombreProducto" required><br><br>
+
+							<label for="descripcion">Descripción:</label>
+							<input type="text" id="descripcion" name="descripcion" required><br><br>
+
+							<button type="submit">Enviar</button>
+						</form>
+					</h2>
+					<%- include("./partials/footer") %>
+	</body>
 
 </html>
