@@ -5,7 +5,7 @@ const products = {
         contrasenia: "secreto123",
         fechaNacimiento: "1990-08-25",      
         numeroDocumento: 46213457,
-        fotoPerfil: "https://cdn-icons-png.flaticon.com/512/1361/1361728.png"     //puede ser online o tiene que estar en carpeta public??
+        fotoPerfil: "/images/users/mujer2.jpg"     //puede ser online o tiene que estar en carpeta public??
     },
     productos: [
         {
@@ -30,7 +30,7 @@ const products = {
             nombre: "Máscara de pestañas voluminizadora",
             descripcion: "Máscara de pestañas voluminizadora para unas pestañas más largas y densas.",
             precio: 21.99,
-            imagen: "/img/productos/mascara.jpg",
+            imagen: "/images/products/rimmel.jpg",
             comentarios: [
                 {
                     nombreUsuario: "Vicky31",
@@ -48,7 +48,7 @@ const products = {
             nombre: "Brillo labial",
             descripcion: "Brillo labial hidratante con un acabado brillante y sin sensación pegajosa.",
             precio: 12.99,
-            imagen: "/img/productos/brillo_labial.jpg",
+            imagen: "/images/products/gloss.png",
             comentarios: [
                 {
                     nombreUsuario: "RochiJ",
@@ -66,7 +66,7 @@ const products = {
             nombre: "Iluminador en polvo",
             descripcion: "Iluminador en polvo para resaltar los puntos altos del rostro y obtener un brillo radiante.",
             precio: 29.99,
-            imagen: "/img/productos/iluminador.jpg",
+            imagen: "/images/products/iluminador.jpg",
             comentarios: [
                 {
                     nombreUsuario: "Trini4566",
@@ -84,7 +84,7 @@ const products = {
             nombre: "Esmalte de uñas",
             descripcion: "Esmalte de uñas de larga duración con una amplia gama de colores brillantes y pigmentados.",
             precio: 9.99,
-            imagen: "/img/productos/esmalte.jpg",
+            imagen: "/images/products/esmalte.jpg",
             comentarios: [
                 {
                     nombreUsuario: "Laucha00",
@@ -102,7 +102,7 @@ const products = {
             nombre: "Paleta de sombras de ojos",
             descripcion: "Paleta de sombras de ojos con una gama de tonos vibrantes y mates.",
             precio: 39.99,
-            imagen: "/img/productos/sombras.jpg",
+            imagen: "/images/products/sombras.jpg",
             comentarios: [
                 {
                     nombreUsuario: "JoaquinL",
@@ -120,7 +120,7 @@ const products = {
             nombre: "Base de maquillaje",
             descripcion: "Base de maquillaje de larga duración con cobertura media a completa.",
             precio: 29.99,
-            imagen: "/img/productos/base_maquillaje.jpg",
+            imagen: "/images/products/base.jpg",
             comentarios: [
                 {
                     nombreUsuario: "RosarioG",
@@ -138,7 +138,7 @@ const products = {
             nombre: "Rubor en polvo",
             descripcion: "Rubor en polvo altamente pigmentado para un aspecto natural y duradero.",
             precio: 19.99,
-            imagen: "/img/productos/rubor.jpg",
+            imagen: "/images/products/rubor.png",
             comentarios: [
                 {
                     nombreUsuario: "Rena55",
@@ -156,7 +156,7 @@ const products = {
             nombre: "Labial mate",
             descripcion: "Labial mate de larga duración con una fórmula hidratante que no reseca los labios.",
             precio: 24.99,
-            imagen: "/img/productos/labial_mate.jpg",
+            imagen: "/images/products/labialMate.jpg",
             comentarios: [
                 {
                     nombreUsuario: "LolaR",
@@ -174,7 +174,7 @@ const products = {
             nombre: "Delineador de ojos líquido",
             descripcion: "Delineador de ojos líquido de larga duración para un delineado preciso y sin manchas.",
             precio: 14.99,
-            imagen: "/img/productos/delineador.jpg",
+            imagen: "/images/products/delineador.jpg",
             comentarios: [
                 {
                     nombreUsuario: "GuadaGT",
