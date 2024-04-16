@@ -7,13 +7,13 @@ const usersController = {
     res.render('login');
   },
   registro: function (req, res, next) {
-    res.render('register');
+    res.render('register', );
   },
   perfil: function (req, res, next) {
     res.render('profile', { perfil: products.usuario, productoEncontrado: products.productos[0] });
   },
   edicionPerfil: function (req, res, next) {
-    res.render('profile-edit');                //sumamos tmb /users solo?    y users/
+    res.render('profile-edit', { perfil: products.usuario});                //sumamos tmb /users solo?    y users/
   }
 };
 

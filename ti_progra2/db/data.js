@@ -5,7 +5,7 @@ const products = {
         contrasenia: "secreto123",
         fechaNacimiento: "1990-08-25",
         numeroDocumento: 46213457,
-        fotoPerfil: "/images/users/mujer2.jpg"     //puede ser online o tiene que estar en carpeta public??
+        fotoPerfil: "/images/users/mujer2.jpg"     
     },
     productos: [
         {
@@ -17,7 +17,7 @@ const products = {
                 {
                     nombreUsuario: "Valen123",
                     textoComentario: "Este corrector líquido es mi salvavidas. Cubre perfectamente mis ojeras sin verse pesado.",
-                    imagenPerfil: "/images/users/mujer.png" //HAY QUE CAMBIAR LA RUTA DE IMGS
+                    imagenPerfil: "/images/users/mujer.png" 
                 },
                 {
                     nombreUsuario: "Feli99",
@@ -35,12 +35,12 @@ const products = {
                 {
                     nombreUsuario: "Vicky31",
                     textoComentario: "¡Esta máscara de pestañas es increíble! Mis pestañas lucen más largas y voluminosas al instante.",
-                    imagenPerfil: "/img/perfiles/lashlover.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "JuanPerez",
                     textoComentario: "¿Alguien ha tenido problemas de grumos con esta máscara de pestañas?",
-                    imagenPerfil: "/img/perfiles/volumeguru.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -53,12 +53,12 @@ const products = {
                 {
                     nombreUsuario: "RochiJ",
                     textoComentario: "¡Este brillo labial es perfecto para dar un toque de brillo a cualquier look de maquillaje!",
-                    imagenPerfil: "/img/perfiles/lipglosslover.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "TomasR",
                     textoComentario: "¿Alguien más ha notado que este brillo labial tiende a desaparecer rápidamente?",
-                    imagenPerfil: "/img/perfiles/shineonqueen.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -71,12 +71,12 @@ const products = {
                 {
                     nombreUsuario: "Trini4566",
                     textoComentario: "¡Este iluminador es increíble! Me encanta cómo resalta mi piel y le da un brillo natural.",
-                    imagenPerfil: "/img/perfiles/glowgetter.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "Roco22",
                     textoComentario: "¿Alguien más ha tenido problemas de brillos excesivos con este iluminador?",
-                    imagenPerfil: "/img/perfiles/highlightqueen.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -89,12 +89,12 @@ const products = {
                 {
                     nombreUsuario: "Laucha00",
                     textoComentario: "¡Este esmalte de uñas es fantástico! Los colores son vibrantes y la fórmula dura mucho tiempo sin descascararse.",
-                    imagenPerfil: "/img/perfiles/nailpolishaddict.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "TomiZ",
                     textoComentario: "¿Alguien ha probado la durabilidad de estos esmaltes en uñas débiles?",
-                    imagenPerfil: "/img/perfiles/colorfulnails.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -107,12 +107,12 @@ const products = {
                 {
                     nombreUsuario: "JoaquinL",
                     textoComentario: "¡Esta paleta es increíble! Los colores son muy pigmentados y se mezclan fácilmente.",
-                    imagenPerfil: "/img/perfiles/makeupaddict23.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "PerezLuca",
                     textoComentario: "¿Alguien ha probado la durabilidad de estas sombras? Me encantaría saber si aguantan todo el día.",
-                    imagenPerfil: "/img/perfiles/glamgirl87.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -125,12 +125,12 @@ const products = {
                 {
                     nombreUsuario: "RosarioG",
                     textoComentario: "Esta base de maquillaje es mi favorita. ¡Deja mi piel impecable durante horas!",
-                    imagenPerfil: "/img/perfiles/beautylover567.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "SilviaGG",
                     textoComentario: "¿Alguien sabe si esta base de maquillaje es apta para pieles sensibles?",
-                    imagenPerfil: "/img/perfiles/cosmeticfanatic.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -143,12 +143,12 @@ const products = {
                 {
                     nombreUsuario: "Rena55",
                     textoComentario: "¡Este rubor es perfecto para dar un toque de color natural a mis mejillas!",
-                    imagenPerfil: "/img/perfiles/rosycheeks.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "JuanJJ",
                     textoComentario: "¿Alguien ha probado este rubor en pieles de tono más oscuro? Me pregunto si se verá tan bien en mí.",
-                    imagenPerfil: "/img/perfiles/blushlover.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -161,12 +161,12 @@ const products = {
                 {
                     nombreUsuario: "LolaR",
                     textoComentario: "¡Este labial mate es mi nuevo favorito! El color es hermoso y dura todo el día sin resecar mis labios.",
-                    imagenPerfil: "/img/perfiles/lipstickaddict.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "AbrilF5",
                     textoComentario: "¿Alguien más ha tenido problemas con la durabilidad de este labial mate? No parece durar tanto como dicen.",
-                    imagenPerfil: "/img/perfiles/poutyqueen.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         },
@@ -179,12 +179,12 @@ const products = {
                 {
                     nombreUsuario: "GuadaGT",
                     textoComentario: "¡Este delineador líquido es genial para crear un delineado de ojos alado perfecto!",
-                    imagenPerfil: "/img/perfiles/wingedliner.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "HelenaT",
                     textoComentario: "¿Alguien tiene algún consejo para aplicar este delineador sin que se corra?",
-                    imagenPerfil: "/img/perfiles/cateyequeen.jpg"
+                    imagenPerfil: "/images/users/mujer.png"
                 }
             ]
         }

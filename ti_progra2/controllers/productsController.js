@@ -7,7 +7,7 @@ const productsController = {
         return res.render('product', { productoEncontrado: products.productos[0] });
     },
     add: function (req, res) {
-        return res.render('product-add');   //sumamos tmb products/indexhtml? (logo)
+        return res.render('product-add', { perfil: products.usuario });   //sumamos tmb products/indexhtml? (logo)
     }
 };
 
