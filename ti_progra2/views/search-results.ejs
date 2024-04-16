@@ -10,11 +10,18 @@
 					<div class="col-12">
 						<h2 class="products-title">Resultados de búsqueda</h2>
 					</div>
+					<div class="d-flex align-items-center">
+						<h2 class="products-title">
+							<%=productoEncontrado.nombre%>
+						</h2>
+						<p class="product-detail-description">
+							<a href="/products/product">Editar</a> <!-- ESTO A DONDE ME TIENE QUE LLEVAR? -->
+						</p>
+					</div>
+					
+
 					<!-- Show the "ultimos" products -->
-					<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de
-							búsqueda. <br>
-							Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-							////////////////
+					<h2 class="col-12">
 					</h2>
 					<%- include("./partials/footer") %>
 	</body>
