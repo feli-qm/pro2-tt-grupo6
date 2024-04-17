@@ -11,7 +11,6 @@ const products = {
         {
             nombre: "Corrector líquido",
             descripcion: "Corrector líquido de alta cobertura para ocultar imperfecciones y ojeras.",
-            precio: 17.99,
             imagen: "/images/products/corrector.png",
             comentarios: [
                 {
@@ -22,32 +21,30 @@ const products = {
                 {
                     nombreUsuario: "Feli99",
                     textoComentario: "¿Alguien sabe si este corrector líquido funciona bien en pieles grasas?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Máscara de pestañas voluminizadora",
             descripcion: "Máscara de pestañas voluminizadora para unas pestañas más largas y densas.",
-            precio: 21.99,
             imagen: "/images/products/rimmel.jpg",
             comentarios: [
                 {
                     nombreUsuario: "Vicky31",
                     textoComentario: "¡Esta máscara de pestañas es increíble! Mis pestañas lucen más largas y voluminosas al instante.",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/muje.png"
                 },
                 {
                     nombreUsuario: "JuanPerez",
                     textoComentario: "¿Alguien ha tenido problemas de grumos con esta máscara de pestañas?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Brillo labial",
             descripcion: "Brillo labial hidratante con un acabado brillante y sin sensación pegajosa.",
-            precio: 12.99,
             imagen: "/images/products/gloss.png",
             comentarios: [
                 {
@@ -58,14 +55,13 @@ const products = {
                 {
                     nombreUsuario: "TomasR",
                     textoComentario: "¿Alguien más ha notado que este brillo labial tiende a desaparecer rápidamente?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Iluminador en polvo",
             descripcion: "Iluminador en polvo para resaltar los puntos altos del rostro y obtener un brillo radiante.",
-            precio: 29.99,
             imagen: "/images/products/iluminador.jpg",
             comentarios: [
                 {
@@ -76,14 +72,13 @@ const products = {
                 {
                     nombreUsuario: "Roco22",
                     textoComentario: "¿Alguien más ha tenido problemas de brillos excesivos con este iluminador?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Esmalte de uñas",
             descripcion: "Esmalte de uñas de larga duración con una amplia gama de colores brillantes y pigmentados.",
-            precio: 9.99,
             imagen: "/images/products/esmalte.jpg",
             comentarios: [
                 {
@@ -94,14 +89,13 @@ const products = {
                 {
                     nombreUsuario: "TomiZ",
                     textoComentario: "¿Alguien ha probado la durabilidad de estos esmaltes en uñas débiles?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Paleta de sombras de ojos",
             descripcion: "Paleta de sombras de ojos con una gama de tonos vibrantes y mates.",
-            precio: 39.99,
             imagen: "/images/products/sombras.jpg",
             comentarios: [
                 {
@@ -112,14 +106,13 @@ const products = {
                 {
                     nombreUsuario: "PerezLuca",
                     textoComentario: "¿Alguien ha probado la durabilidad de estas sombras? Me encantaría saber si aguantan todo el día.",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Base de maquillaje",
             descripcion: "Base de maquillaje de larga duración con cobertura media a completa.",
-            precio: 29.99,
             imagen: "/images/products/base.jpg",
             comentarios: [
                 {
@@ -130,14 +123,13 @@ const products = {
                 {
                     nombreUsuario: "SilviaGG",
                     textoComentario: "¿Alguien sabe si esta base de maquillaje es apta para pieles sensibles?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Rubor en polvo",
             descripcion: "Rubor en polvo altamente pigmentado para un aspecto natural y duradero.",
-            precio: 19.99,
             imagen: "/images/products/rubor.png",
             comentarios: [
                 {
@@ -148,14 +140,13 @@ const products = {
                 {
                     nombreUsuario: "JuanJJ",
                     textoComentario: "¿Alguien ha probado este rubor en pieles de tono más oscuro? Me pregunto si se verá tan bien en mí.",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Labial mate",
             descripcion: "Labial mate de larga duración con una fórmula hidratante que no reseca los labios.",
-            precio: 24.99,
             imagen: "/images/products/labialMate.jpg",
             comentarios: [
                 {
@@ -166,14 +157,13 @@ const products = {
                 {
                     nombreUsuario: "AbrilF5",
                     textoComentario: "¿Alguien más ha tenido problemas con la durabilidad de este labial mate? No parece durar tanto como dicen.",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         },
         {
             nombre: "Delineador de ojos líquido",
             descripcion: "Delineador de ojos líquido de larga duración para un delineado preciso y sin manchas.",
-            precio: 14.99,
             imagen: "/images/products/delineador.jpg",
             comentarios: [
                 {
@@ -184,7 +174,7 @@ const products = {
                 {
                     nombreUsuario: "HelenaT",
                     textoComentario: "¿Alguien tiene algún consejo para aplicar este delineador sin que se corra?",
-                    imagenPerfil: "/images/users/mujer.png"
+                    imagenPerfil: "/images/users/mujer3.png"
                 }
             ]
         }
