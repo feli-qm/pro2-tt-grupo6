@@ -5,7 +5,7 @@ const products = {
         contrasenia: "secreto123",
         fechaNacimiento: "1990-08-25",
         numeroDocumento: 46213457,
-        fotoPerfil: "/images/users/mujer2.jpg"     
+        fotoPerfil: "/images/users/mujer2.jpg"
     },
     productos: [
         {
@@ -16,7 +16,7 @@ const products = {
                 {
                     nombreUsuario: "Valen123",
                     textoComentario: "Este corrector líquido es mi salvavidas. Cubre perfectamente mis ojeras sin verse pesado.",
-                    imagenPerfil: "/images/users/mujer.png" 
+                    imagenPerfil: "/images/users/mujer.png"
                 },
                 {
                     nombreUsuario: "Feli99",

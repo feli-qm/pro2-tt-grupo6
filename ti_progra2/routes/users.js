@@ -8,7 +8,7 @@ const usersController = require('../controllers/usersController');
 router.get('/login', usersController.ingreso);
 router.get('/register', usersController.registro);
 router.get('/profile', usersController.perfil);
-router.get('/edit', usersController.edicionPerfil);   // esta bien??? o solo edit? o /profile-edit.html???
+router.get('/edit', usersController.edicionPerfil);
 
 //exportar ruteador//
 module.exports = router;
