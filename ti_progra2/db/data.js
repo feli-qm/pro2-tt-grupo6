@@ -26,8 +26,8 @@ const products = {
             ]
         },
         {
-            nombre: "Máscara de pestañas voluminizadora",
-            descripcion: "Máscara de pestañas voluminizadora para unas pestañas más largas y densas.",
+            nombre: "Máscara de pestañas",
+            descripcion: "Máscara de pestañas para unas pestañas más largas y densas.",
             imagen: "/images/products/rimmel.jpg",
             comentarios: [
                 {
@@ -94,8 +94,8 @@ const products = {
             ]
         },
         {
-            nombre: "Paleta de sombras de ojos",
-            descripcion: "Paleta de sombras de ojos con una gama de tonos vibrantes y mates.",
+            nombre: "Paleta de sombras",
+            descripcion: "Paleta de sombras con una gama de tonos vibrantes y mates.",
             imagen: "/images/products/sombras.jpg",
             comentarios: [
                 {

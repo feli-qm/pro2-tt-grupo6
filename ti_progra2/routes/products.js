@@ -1,13 +1,12 @@
 //importar express y router//
-var express = require('express');             //-->es var o let o const??//
+var express = require('express');
 var router = express.Router();
 const productsController= require("../controllers/productsController");
 
 //crear rutas con sus sufijos//
-/* GET users listing. */
+/* GET products listing. */
 router.get('/', productsController.index);
-router.get('/product', productsController.add);     //preguntar en clase si es /product//
-router.get('/product/add', productsController.add); 
+router.get('/add', productsController.add); 
 
 //exportar ruteador//
 module.exports = router;
