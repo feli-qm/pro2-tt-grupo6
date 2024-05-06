@@ -1,5 +1,5 @@
 //importar info que voy a usar en este modulo
-const products = require('../db/data');
+const db = require('../database/models');
 
 //crear el modulo en si
 const usersController = {
@@ -10,10 +10,10 @@ const usersController = {
     res.render('register',);
   },
   perfil: function (req, res, next) {
-    res.render('profile', { perfil: products.usuario, productoEncontrado: products.productos });
+    res.render('profile', { });
   },
   edicionPerfil: function (req, res, next) {
-    res.render('profile-edit', { perfil: products.usuario });
+    res.render('profile-edit', { });
   }
 };
 
