@@ -5,9 +5,9 @@ const db = require('../database/models');
 const indexController = {
     index: function (req, res) {
 
-
+        db.Producto
         
-        return res.render('index', { productoEncontrado: });
+        return res.render('index', { productoEncontrado: ""});
 
     },
     search: function (req, res) {
