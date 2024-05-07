@@ -7,7 +7,7 @@ const indexController = {
 
 
         
-        return res.render('index', { productoEncontrado: });
+        return res.render('index', { productoEncontrado: ""});
 
     },
     search: function (req, res) {
