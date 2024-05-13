@@ -8,5 +8,8 @@ const productsController= require("../controllers/productsController");
 router.get('/', productsController.index);
 router.get('/add', productsController.add); 
 
+//POST capturar la info del formulario//
+router.post("/")
+
 //exportar ruteador//
 module.exports = router;

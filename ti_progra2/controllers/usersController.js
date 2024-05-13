@@ -1,5 +1,6 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
+const usuario = db.Usuario;
 
 //crear el modulo en si
 const usersController = {

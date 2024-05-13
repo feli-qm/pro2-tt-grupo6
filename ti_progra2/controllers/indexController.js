@@ -4,8 +4,6 @@ const db = require('../database/models');
 //crear el modulo en si
 const indexController = {
     index: function (req, res) {
-
-        db.Producto
         
         return res.render('index', { productoEncontrado: ""});
 
