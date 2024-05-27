@@ -1,14 +1,18 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
+const op= db.Sequelize.Op;
+
 
 //crear el modulo en si
 const productsController = {
     index: function (req, res) {
-        db.Product.findAll() //dudas OK Brian
+        let filtro={
+           order:[["nombreProducto", "ASC"]]
+        }
+        db.Product.findAll() //dudas OK Brian....
             .then((resultados) => {
-                return res.send(resultados)
-                return res.render("product", { datos: resultados })
-            }).catch(function(err) {
+                return res.render("product", { productoEncontrado: resultados })
+            }).catch((err) => {
                 return console.log(err);
             })            
     },
@@ -16,7 +20,20 @@ const productsController = {
         return res.render('product-add', { perfil: products.usuario });
     },
     store: function (req, res) {
-        return res.redirect("/")
+        let form=req.body;
+        let guardar= {
+            foto: form.imagen,
+            nombreProducto: form.nombreProducto,
+            descProducto: form.descripcion,
+        }
+        
+
+        db.Producto.create(form)
+        .then((resultados) => {
+            return res.redirect("/products")
+        }).catch((err) => {
+            return console.log(err);
+        })        
     }
 };
 
