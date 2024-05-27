@@ -1,6 +1,6 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
-const usuario = db.Usuario;
+const op = db.Sequelize.Op;
 
 //crear el modulo en si
 const usersController = {
@@ -15,6 +15,24 @@ const usersController = {
   },
   edicionPerfil: function (req, res, next) {
     res.render('profile-edit', { });
+  },
+  store: function(req, res){
+    let form = req.body;
+    let guardar = {
+      email: form.email,
+      nombre: form.usuario,
+      contrasenia: form.contrasena,
+      fechaNacimiento: form.fecha_nacimiento,
+      numeroDocumento: form.nro_documento,
+      foto: form.foto_perfil,
+    }
+
+    db.Usuario.create(form)
+    .then((resultados) => {
+      return res.redirect("/users")
+    }).catch((err) => {
+      return console.log(err);
+  })            
   }
 };
 
