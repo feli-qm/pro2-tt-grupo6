@@ -5,7 +5,7 @@ const productsController= require("../controllers/productsController");
 
 //crear rutas con sus sufijos//
 /* GET products listing. */
-router.get('/', productsController.index);
+router.get('/:idProducto', productsController.index);
 router.get('/add', productsController.add); 
 
 //POST capturar la info del formulario//

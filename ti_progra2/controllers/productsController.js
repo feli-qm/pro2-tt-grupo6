@@ -5,16 +5,17 @@ const op= db.Sequelize.Op;
 
 //crear el modulo en si
 const productsController = {
-    index: function (req, res) {
-        let filtro={
-           order:[["nombreProducto", "ASC"]]
-        }
-        db.Product.findAll() //dudas OK Brian....
-            .then((resultados) => {
-                return res.render("product", { productoEncontrado: resultados })
-            }).catch((err) => {
-                return console.log(err);
-            })            
+    index: function (req, res) { //detalle producto
+        let idProducto=req.params.idProducto;
+        // return res.send(idProducto)
+        db.Product.findByPk(idProducto)
+        .then((resultados) => {
+            // return res.send(resultados)
+            return res.render("product",{productoEncontrado: resultados})
+        }).catch((err) => {
+            return console.log(err);
+        });        
+    
     },
     add: function (req, res) {
         return res.render('product-add', { perfil: products.usuario });
