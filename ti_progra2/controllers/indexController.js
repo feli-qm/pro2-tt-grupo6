@@ -4,10 +4,16 @@ const db = require('../database/models');
 //crear el modulo en si
 const indexController = {
     index: function (req, res) {
-        
-        return res.render('index', { productoEncontrado: ""});
-
-    },
+        let filtro = {
+            order: [["nombreProducto", "ASC"]]
+        }
+        db.Product.findAll()
+            .then((resultados) => {
+                return res.render("index", { productoEncontrado: resultados })
+            }).catch((err) => {
+                return console.log(err);
+            })
+        },
     search: function (req, res) {
         return res.render('search-results', { productoEncontrado: products.productos });
     },
