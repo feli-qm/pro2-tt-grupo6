@@ -4,6 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//implementar session
+const session = require("express-session");
+app.use(session({ secret: "Mensaje secreto",
+                  resave: false,
+                  saveUninitialized: true}));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products'); //es var o let??//
