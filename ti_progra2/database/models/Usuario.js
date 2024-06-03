@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-    let alias = "User";
+    let alias = "Usuario";
     let cols = {
         id: {
             autoIncrement : true,
@@ -41,7 +41,7 @@ module.exports = function(sequelize, dataTypes){
         underscored: false
     }
     
-    let usuarios = sequelize.define(alias, cols, config);
-    return usuarios;
+    let Usuario = sequelize.define(alias, cols, config);
+    return Usuario;
 
         }

@@ -7,8 +7,9 @@ const indexController = {
         let filtro = {
             order: [["nombreProducto", "ASC"]]
         }
-        db.Product.findAll()
+        db.Producto.findAll()
             .then((resultados) => {
+                //return res.send(resultados)
                 return res.render("index", { productoEncontrado: resultados })
             }).catch((err) => {
                 return console.log(err);
