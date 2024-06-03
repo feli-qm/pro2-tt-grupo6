@@ -51,16 +51,16 @@ CREATE TABLE productos (
     
 /* 10 productos */
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
-VALUES (DEFAULT, 1, "corrector.jpg", "Corrector líquido", "Corrector líquido de alta cobertura para ocultar imperfecciones y ojeras.", DEFAULT, DEFAULT, NULL);
+VALUES (DEFAULT, 1, "corrector.png", "Corrector líquido", "Corrector líquido de alta cobertura para ocultar imperfecciones y ojeras.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
-VALUES (DEFAULT, 2, "mascara.jpg", "Máscara de pestañas voluminizadora", "Máscara de pestañas voluminizadora para unas pestañas más largas y densas.", DEFAULT, DEFAULT, NULL);
+VALUES (DEFAULT, 2, "delineador.jpg", "Delineador de ojos", "Delineador de ojos líquido de larga duración para un delineado preciso y sin manchas..", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
-VALUES (DEFAULT, 3, "mascara.jpg", "Máscara de pestañas voluminizadora", "Máscara de pestañas voluminizadora para unas pestañas más largas y densas.", DEFAULT, DEFAULT, NULL);
+VALUES (DEFAULT, 3, "rimmel.jpg", "Máscara de pestañas voluminizadora", "Máscara de pestañas voluminizadora para unas pestañas más largas y densas.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
-VALUES (DEFAULT, 4, "brillo_labial.jpg", "Brillo labial", "Brillo labial hidratante con un acabado brillante y sin sensación pegajosa.", DEFAULT, DEFAULT, NULL);
+VALUES (DEFAULT, 4, "gloss.png", "Brillo labial", "Brillo labial hidratante con un acabado brillante y sin sensación pegajosa.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
 VALUES (DEFAULT, 5, "iluminador.jpg", "Iluminador en polvo", "Iluminador en polvo para resaltar los puntos altos del rostro y obtener un brillo radiante.", DEFAULT, DEFAULT, NULL);
@@ -72,7 +72,7 @@ INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, create
 VALUES (DEFAULT, 2, "sombras.jpg", "Paleta de sombras de ojos", "Paleta de sombras de ojos con una gama de tonos vibrantes y mates.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
-VALUES (DEFAULT, 3, "base_maquillaje.jpg", "Base de maquillaje", "Base de maquillaje de larga duración con cobertura media a completa.", DEFAULT, DEFAULT, NULL);
+VALUES (DEFAULT, 3, "base.png", "Base de maquillaje", "Base de maquillaje de larga duración con cobertura media a completa.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
 VALUES (DEFAULT, 4, "rubor.jpg", "Rubor en polvo", "Rubor en polvo altamente pigmentado para un aspecto natural y duradero.", DEFAULT, DEFAULT, NULL);
