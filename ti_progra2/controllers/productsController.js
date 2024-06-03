@@ -27,7 +27,7 @@ const productsController = {
             nombreProducto: form.nombreProducto,
             descProducto: form.descripcion,
         }
-        
+
         db.Producto.create(form)
         .then((resultados) => {
             return res.redirect("/products")
