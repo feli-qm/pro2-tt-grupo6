@@ -8,7 +8,7 @@
 			<div class="container products-wrapper">
 				<div class="d-flex align-items-center">
 					<h2 class="products-title">
-						<%=productoEncontrado.nombre%>
+						<%=productoEncontrado.nombreProducto%>
 					</h2>
 					<p class="product-detail-description">
 						<a href="/products/add">Agregar producto</a>
@@ -17,15 +17,14 @@
 				<div class="product-detail">
 					<div class="row">
 						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="<%= productoEncontrado.foto%>" alt="" class="product-detail-img">
+							<img src="/images/products/<%= productoEncontrado.foto%>" alt="" class="product-detail-img">
 							<p class="product-detail-description">
-								<%= productoEncontrado.descripcion %>
+								<%= productoEncontrado.descProducto %>
 							</p>
 						</article>
 						<div class="col-12 col-lg-4">
 							<section class="comments">
 						
-
 							</section>
 							<form class="form" action="/products" method="GET">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">

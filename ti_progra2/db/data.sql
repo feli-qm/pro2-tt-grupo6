@@ -72,7 +72,7 @@ INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, create
 VALUES (DEFAULT, 2, "sombras.jpg", "Paleta de sombras de ojos", "Paleta de sombras de ojos con una gama de tonos vibrantes y mates.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
-VALUES (DEFAULT, 3, "base.png", "Base de maquillaje", "Base de maquillaje de larga duración con cobertura media a completa.", DEFAULT, DEFAULT, NULL);
+VALUES (DEFAULT, 3, "base.jpg", "Base de maquillaje", "Base de maquillaje de larga duración con cobertura media a completa.", DEFAULT, DEFAULT, NULL);
 
 INSERT INTO productos (id, idUsuario, foto, nombreProducto, descProducto, createdAt, updatedAt, deletedAt)
 VALUES (DEFAULT, 4, "rubor.jpg", "Rubor en polvo", "Rubor en polvo altamente pigmentado para un aspecto natural y duradero.", DEFAULT, DEFAULT, NULL);

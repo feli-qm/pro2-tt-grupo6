@@ -5,13 +5,13 @@ const op= db.Sequelize.Op;
 
 //crear el modulo en si
 const productsController = {
-    index: function (req, res) { //detalle producto
+    detalle: function (req, res) { //detalle producto
         let idProducto=req.params.idProducto;
         // return res.send(idProducto)
         db.Producto.findByPk(idProducto)
         .then((resultados) => {
-            return res.send(resultados)
-            // return res.render("product",{productoEncontrado: resultados})
+            //return res.send(resultados)
+            return res.render("product-detalle",{productoEncontrado: resultados})
         }).catch((err) => {
             return console.log(err);
         });        
