@@ -1,5 +1,6 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
+const op= db.Sequelize.Op;
 
 //crear el modulo en si
 const indexController = {
