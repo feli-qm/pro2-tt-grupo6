@@ -8,7 +8,18 @@ const productsController = {
     detalle: function (req, res) { //detalle producto
         let idProducto=req.params.idProducto;
         // return res.send(idProducto)
-        db.Producto.findByPk(idProducto)
+        const filtro = {
+            include: [{
+                association: 'productoComentario', 
+                include: [{association:'comments'}]
+            }, {
+                association: 'productoUsuario'
+            }],
+            order: [
+                ["productoComentario", "createdAt", "DESC"]
+            ]
+        }
+        db.Producto.findByPk(idProducto, filtro)
         .then((resultados) => {
             //return res.send(resultados)
             return res.render("product-detalle",{productoEncontrado: resultados})

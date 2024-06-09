@@ -6,7 +6,7 @@ const op= db.Sequelize.Op;
 const indexController = {
     index: function (req, res) {
         let filtro = {
-            order: [["nombreProducto", "ASC"]]
+            order: [["nombreProducto","createdAt", "DESC"]]
         }
         db.Producto.findAll()
             .then((resultados) => {
