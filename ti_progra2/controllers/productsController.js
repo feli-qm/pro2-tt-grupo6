@@ -7,7 +7,7 @@ const op= db.Sequelize.Op;
 const productsController = {
     detalle: function (req, res) { //detalle producto
         let idProducto=req.params.idProducto;
-        // return res.send(idProducto)
+        
         const filtro = {
             include: [{
                 association: 'productoComentario', 
