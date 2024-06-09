@@ -1,6 +1,7 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
 const op = db.Sequelize.Op;
+const {validationResult} = require("express-validator")
 
 //crear el modulo en si
 const usersController = {
@@ -8,7 +9,13 @@ const usersController = {
     res.render('login');
   },
   registro: function (req, res, next) {
-    res.render('register',);
+    let errors = validationResult(req);
+    if(errors.isEmpty()){
+      //No hay errores, entonces seguimos 
+    }
+    else{
+       res.render('register', {errors: errors.mapped(), old: req.body});
+    }
   },
   perfil: function (req, res, next) {
     let idUsuario=req.params.idUsuario;

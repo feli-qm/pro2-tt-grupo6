@@ -16,12 +16,21 @@
 							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
 							<label for="email">Email:</label>
 							<input type="email" id="email" name="email" required><br><br>
+							<% if (locals.errors && errors.email) { %>
+								<p class="feedback"><% errors.email %></p>
+								<% } %>
 
 							<label for="usuario">Usuario:</label>
 							<input type="text" id="usuario" name="usuario" required><br><br>
-
+							<% if (locals.errors && errors.usuario) { %>
+								<p class="feedback"><% errors.usuario %></p>
+								<% } %>
+								
 							<label for="contrasena">Contraseña:</label>
 							<input type="password" id="contrasena" name="contrasena" required><br><br>
+							<% if (locals.errors && errors.contrasena) { %>
+								<p class="feedback"><% errors.contrasena %></p>
+								<% } %>
 
 							<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
 							<input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
