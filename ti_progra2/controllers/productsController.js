@@ -31,6 +31,7 @@ const productsController = {
     add: function (req, res) {
         return res.render('product-add', { perfil: products.usuario });
     },
+
     store: function (req, res) {
         let form=req.body;
         let guardar= {
@@ -45,7 +46,16 @@ const productsController = {
         }).catch((err) => {
             return console.log(err);
         })        
-    }
+    },
+    borrar: (req, res) => {
+        db.Producto.destroy({
+            where: {
+                id: req.body.id
+            }
+        }) .then(() => {
+                res.redirect('/');
+        });
+    },
 };
 
 //exportar el modulo

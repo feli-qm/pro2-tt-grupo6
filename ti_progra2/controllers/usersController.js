@@ -22,8 +22,8 @@ const usersController = {
   }
   db.Usuario.findByPk(idUsuario, filtro)
   .then((resultados) => {
-      //return res.send(resultados)
-      return res.render("profile",{}) // preguntarle a Luis
+      return res.send(resultados)
+      //return res.render("profile",{perfil: resultados}) // preguntarle a Luis
   }).catch((err) => {
       return console.log(err);
   });   
