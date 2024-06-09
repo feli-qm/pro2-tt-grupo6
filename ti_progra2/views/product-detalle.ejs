@@ -24,16 +24,7 @@
 						</article>
 						<div class="col-12 col-lg-4">
 							<section class="comments">
-						<% for(let i = 0; i < productoEncontrado.productoComentario.length; i++){ %>
-							<article>
-								<img src="<%= coment.comentarios.pp %>" alt="">
-								<div class="data">
-									<p class="user">
-									<strong> <a href="/user/id/<%=coment.comentarios.id%>"><%- coment.comentarios.username %> </a> </strong>
-									 <%- coment.commentary %></p>
-								</div>
-							</article>
-							<% } %> 
+								
 							</section>
 							<form class="form" action="/products" method="GET">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
