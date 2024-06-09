@@ -23,12 +23,10 @@ const usersController = {
   db.Usuario.findByPk(idUsuario, filtro)
   .then((resultados) => {
       //return res.send(resultados)
-      return res.render("product-detalle",{productoEncontrado: resultados})
+      return res.render("profile",{}) // preguntarle a Luis
   }).catch((err) => {
       return console.log(err);
   });   
-
-    res.render('profile', { });
   },
   edicionPerfil: function (req, res, next) {
     res.render('profile-edit', { });
