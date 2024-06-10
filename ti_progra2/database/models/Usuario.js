@@ -38,10 +38,10 @@ module.exports = function(sequelize, dataTypes){
     let config = {
         tableName: "usuarios",
         timestamps: true,
-        underscored: false
+        underscored: false,
     }
     
-    let Usuario = sequelize.define(alias, cols, config);
+    let usuario = sequelize.define(alias, cols, config);
     
     Usuario.associate = function(models) {
         Usuario.hasMany(models.Producto, {
@@ -55,6 +55,6 @@ module.exports = function(sequelize, dataTypes){
         });
     };
 
-    return Usuario;
+    return usuario;
 
         }

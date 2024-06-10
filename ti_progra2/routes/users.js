@@ -3,7 +3,14 @@ var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/usersController');
 
-//validaciones PREGUNTAR SI VA ACA O EN ROUTES INDEX
+//crear rutas con sus sufijos//
+/* GET users listing. */
+router.get('/login', usersController.ingreso);
+router.get('/register', usersController.registro);
+router.get('/profile', usersController.perfil);
+router.get('/edit', usersController.edicionPerfil);
+
+//validaciones PREGUNTAR SI VA ACA O EN ROUTES INDEX (registro)
 const {body} = require("express-validator");
 let validations = [
     body("email")
@@ -26,12 +33,7 @@ let validations = [
     .isLength({min:4}).withMessage("Debes ingresar un minimo de 4 caracteres"),   
 ]
 router.post("/", validations, usersController.registro);
-//crear rutas con sus sufijos//
-/* GET users listing. */
-router.get('/login', usersController.ingreso);
-router.get('/register', usersController.registro);
-router.get('/profile', usersController.perfil);
-router.get('/edit', usersController.edicionPerfil);
+router.post("/", validations, usersController.ingreso);
 
 //exportar ruteador//
 module.exports = router;
