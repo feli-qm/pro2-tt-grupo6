@@ -41,7 +41,7 @@ module.exports = function(sequelize, dataTypes){
         underscored: false,
     }
     
-    let usuario = sequelize.define(alias, cols, config);
+    let Usuario = sequelize.define(alias, cols, config);
     
     Usuario.associate = function(models) {
         Usuario.hasMany(models.Producto, {
@@ -55,6 +55,6 @@ module.exports = function(sequelize, dataTypes){
         });
     };
 
-    return usuario;
+    return Usuario;
 
         }

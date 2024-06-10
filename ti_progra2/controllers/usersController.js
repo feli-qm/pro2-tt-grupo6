@@ -45,11 +45,11 @@ const usersController = {
       return res.render('register', {errors: errors.mapped(), old: req.body});
       let usuarioCreado = {
         email: form.email,
-        nombre: form.usuario,
-        contrasenia: bcrypt.hashSync(form.contrasena, 10),
-        fechaNacimiento: form.fecha_nacimiento,
-        numeroDocumento: form.nro_documento,
-        foto: form.foto_perfil,
+        nombre: form.nombre,
+        contrasenia: bcrypt.hashSync(form.contrasenia, 10),
+        fechaNacimiento: form.fechaNacimiento,
+        numeroDocumento: form.numeroDocumento,
+        foto: form.foto,
     }
 
     db.Usuario.create(usuarioCreado)
