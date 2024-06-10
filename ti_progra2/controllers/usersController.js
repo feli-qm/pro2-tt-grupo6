@@ -6,25 +6,34 @@ const {validationResult} = require("express-validator")
 
 //crear el modulo en si
 const usersController = {
-  ingreso: function (req, res, next) {
+  loginGet: function (req, res) {
+    if (req.session.user){
+      res.redirect('/')
+    }
+    else {
+      res.render('login', {error:null})
+    }
     res.render('login');
   },
-  registro: function (req, res, next) {
+  loginPost: function (req, res) {
+    
+  }
+  register: function (req, res, next) {
     return res.render("register")
     
   },
-  perfil: function (req, res, next) {
+  profile: function (req, res, next) {
     let idUsuario=req.params.idUsuario;
     const filtro = {
-      include: [{
-          association: 'usuarioComentario', 
-          include: [{association:'comments'}]
-      }, {
-          association: 'usuarioProducto'
+      include: [
+        {association: 'usuarioProducto', include: [
+                {association:'productoComentario'}]
       }],
   }
-  db.Usuario.findByPk(idUsuario, filtro)
+  //return res.send(idUsuario)
+  db.Usuario.findByPk(idUsuario, filtro )
   .then((resultados) => {
+    return res.send(resultados)
       return res.send(resultados)
       //return res.render("profile",{perfil: resultados}) // preguntarle a Luis
   }).catch((err) => {
@@ -38,11 +47,6 @@ const usersController = {
     let form = req.body;
     let errors = validationResult(req);
     if(errors.isEmpty()){
-      //No hay errores, entonces seguimos 
-      return res.send("OK")
-    }
-    else{
-      return res.render('register', {errors: errors.mapped(), old: req.body});
       let usuarioCreado = {
         email: form.email,
         nombre: form.nombre,
@@ -57,7 +61,12 @@ const usersController = {
       return res.redirect("/")
     }).catch((err) => {
       return console.log(err);
-  });         
+  }); 
+    }
+    else{
+     
+      return res.render('register', {errors: errors.mapped(), old: req.body});
+              
   }
 }
 }
