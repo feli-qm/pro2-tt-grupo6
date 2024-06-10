@@ -9,13 +9,8 @@ const usersController = {
     res.render('login');
   },
   registro: function (req, res, next) {
-    let errors = validationResult(req);
-    if(errors.isEmpty()){
-      //No hay errores, entonces seguimos 
-    }
-    else{
-       res.render('register', {errors: errors.mapped(), old: req.body});
-    }
+    return res.render("register")
+    
   },
   perfil: function (req, res, next) {
     let idUsuario=req.params.idUsuario;
@@ -40,6 +35,12 @@ const usersController = {
   },
   store: function(req, res){
     let form = req.body;
+    let errors = validationResult(req);
+    if(errors.isEmpty()){
+      //No hay errores, entonces seguimos 
+    }
+    else{
+       res.render('register', {errors: errors.mapped(), old: req.body});
     let guardar = {
       email: form.email,
       nombre: form.usuario,
@@ -56,7 +57,8 @@ const usersController = {
       return console.log(err);
   })            
   }
-};
+}
+}
 
 //exportar el modulo
 module.exports = usersController;
