@@ -32,8 +32,13 @@ let validations = [
     .notEmpty().withMessage("Debes completar este campo con tu contraseña")
     .isLength({min:4}).withMessage("Debes ingresar un minimo de 4 caracteres"),   
 ]
-router.post("/", validations, usersController.registro);
-router.post("/", validations, usersController.ingreso);
+router.post("/register", validations, usersController.registro);
+//crear rutas con sus sufijos//
+/* GET users listing. */
+router.get('/login', usersController.ingreso);
+router.get('/register', usersController.registro);
+router.get('/profile', usersController.perfil);
+router.get('/edit', usersController.edicionPerfil);
 
 //exportar ruteador//
 module.exports = router;
