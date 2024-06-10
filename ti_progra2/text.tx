@@ -1,0 +1,10 @@
+ .custom(function(value){
+        db.Usuario.findOne({
+            where: {email : value}, 
+        })
+        .then(function(nombre){
+            if(nombre){
+                throw new Error("El email ingresado no existe") 
+            }
+        })
+})
