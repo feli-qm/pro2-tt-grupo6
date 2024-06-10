@@ -3,21 +3,7 @@ var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/usersController');
 
-<<<<<<< HEAD
-var db = require('../database/models');
-
-
-//validaciones PREGUNTAR SI VA ACA O EN ROUTES INDEX
-=======
-//crear rutas con sus sufijos//
-/* GET users listing. */
-router.get('/login', usersController.ingreso);
-router.get('/register', usersController.registro);
-router.get('/profile', usersController.perfil);
-router.get('/edit', usersController.edicionPerfil);
-
 //validaciones PREGUNTAR SI VA ACA O EN ROUTES INDEX (registro)
->>>>>>> b0f3569fa6e2b0d11e9bbfb4277183f2bfdb1272
 const {body} = require("express-validator");
 let validations = [
     body("email")
