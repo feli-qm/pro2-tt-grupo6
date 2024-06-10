@@ -20,26 +20,26 @@
 								<p class="feedback"><%= errors.email.msg %></p>
 								<% } %>
 
-							<label for="usuario">Usuario:</label>
-							<input type="text" id="usuario" name="usuario" ><br><br>
+							<label for="nombre">Usuario:</label>
+							<input type="text" id="nombre" name="nombre" ><br><br>
 							<% if (locals.errors && errors.usuario) { %>
 								<p class="feedback"><%= errors.usuario.msg %></p>
 								<% } %>
 								
-							<label for="contrasena">Contraseña:</label>
-							<input type="password" id="contrasena" name="contrasena" ><br><br>
+							<label for="contrasenia">Contraseña:</label>
+							<input type="password" id="contrasenia" name="contrasenia" ><br><br>
 							<% if (locals.errors && errors.contrasena) { %>
 								<p class="feedback"><%= errors.contrasena.msg %></p>
 								<% } %>
 
-							<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-							<input type="date" id="fecha_nacimiento" name="fecha_nacimiento" ><br><br>
+							<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+							<input type="date" id="fechaNacimiento" name="fechaNacimiento" ><br><br>
 
-							<label for="nro_documento">Número de Documento:</label>
-							<input type="number" id="nro_documento" name="nro_documento" ><br><br>
+							<label for="numeroDocumento">Número de Documento:</label>
+							<input type="number" id="numeroDocumento" name="numeroDocumento" ><br><br>
 
-							<label for="foto_perfil">Foto de Perfil:</label>
-							<input type="text" id="foto_perfil" name="foto_perfil"><br><br>
+							<label for="foto">Foto de Perfil:</label>
+							<input type="text" id="foto" name="foto"><br><br>
 
 							<button type="submit">Enviar</button>
 						</form>
