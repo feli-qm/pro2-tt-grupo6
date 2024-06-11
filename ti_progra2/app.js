@@ -18,9 +18,40 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//session
 app.use(session({ secret: "Mensaje secreto",
                   resave: false,
                   saveUninitialized: true}));
+
+app.use(function(req,res,next){
+  if (req.session.usuario != undefined) {
+    res.locals.user = req.session.usuario; //revisar si funciona .user en el login(cuando feli lo termine)
+  }
+  return next()
+});
+
+//cookies = recordar al usuario
+app.use(function(req, res, next) {
+  if (req.cookies.usuarioId != undefined && req.session.usuario == undefined) {
+      let id = req.cookies.userId;
+
+      db.Usuario.findByPk(id)
+      .then(function(resultados) {
+
+        req.session.usuario = resultados;
+        res.locals.usuario = resultados;
+
+        return next(); 
+      })
+      .catch(function(err) {
+        return console.log(err); ; 
+      });
+  } 
+  else {
+    return next()
+  }
+});
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

@@ -7,7 +7,7 @@ const {validationResult} = require("express-validator")
 //crear el modulo en si
 const usersController = {
   loginGet: function (req, res) {
-    if (req.session.user){
+    if (req.session.usuario){
       res.redirect('/')
     }
     else {
@@ -24,7 +24,7 @@ const usersController = {
   },
   //logout: function(req, res, next) {
    // req.session.destroy()
-   // res.clearCookie(“userId”)
+   // res.clearCookie(“usuarioId”)
     //return res.redirect("/");
   //},
   profile: function (req, res, next) {
