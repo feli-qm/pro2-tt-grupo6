@@ -26,13 +26,13 @@
 							<section class="comments">
 								<% for (let i=0; i < productoEncontradoComentarios.length; i++){%>
                                     <article>
-                                        <img src="<%= productoEncontradoComentarios[i].foto%>" alt="">
+                                        <img src="<%= productoEncontradoComentarios[i].foto%>" alt=""> 	<!-- NO ANDA  -->
                                         <div class="data">
                                             <p class="user">
                                                 <strong> <a href="/users/profile">
-                                                        <%= productoEncontradoComentarios[i].nombre %>
+                                                        <%= productoEncontradoComentarios[i].nombre %> 	<!-- NO ANDA -->
                                                     </a> </strong>
-                                                <%= productoEncontradoComentarios[i].comentario%>
+                                                <%= productoEncontradoComentarios[i].comentario%> 
                                             </p>
                                         </div>
                                     </article>
