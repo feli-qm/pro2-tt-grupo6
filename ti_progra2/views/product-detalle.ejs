@@ -24,7 +24,19 @@
 						</article>
 						<div class="col-12 col-lg-4">
 							<section class="comments">
-								
+								<% for (let i=0; i < productoEncontradoComentarios.length; i++){%>
+                                    <article>
+                                        <img src="<%= productoEncontradoComentarios[i].foto%>" alt="">
+                                        <div class="data">
+                                            <p class="user">
+                                                <strong> <a href="/users/profile">
+                                                        <%= productoEncontradoComentarios[i].nombre %>
+                                                    </a> </strong>
+                                                <%= productoEncontradoComentarios[i].comentario%>
+                                            </p>
+                                        </div>
+                                    </article>
+                                    <%}%>
 							</section>
 							<form class="form" action="/products" method="GET">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">

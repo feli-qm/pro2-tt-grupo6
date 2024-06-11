@@ -10,7 +10,7 @@ const productsController = {
         const filtro = {
             include: [{
                 association: 'productoComentario', 
-                include: [{association:'comments'}]
+                include: [{association:'comentariosUsuario'}]
             }, {
                 association: 'productoUsuario'
             }],
@@ -21,7 +21,7 @@ const productsController = {
         db.Producto.findByPk(idProducto, filtro)
         .then((resultados) => {
             //return res.send(resultados)
-            return res.render("product-detalle",{productoEncontrado: resultados})
+            return res.render("product-detalle",{productoEncontrado: resultados, productoEncontradoComentarios: resultados.productoComentario})
         }).catch((err) => {
             return console.log(err);
         });        

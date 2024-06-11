@@ -15,13 +15,18 @@ const usersController = {
     }
     res.render('login');
   },
-  loginPost: function (req, res) {
+  //loginPost: function (req, res) {
      
-  },
+  //},
   register: function (req, res, next) {
     return res.render("register")
     
   },
+  //logout: function(req, res, next) {
+   // req.session.destroy()
+   // res.clearCookie(“userId”)
+    //return res.redirect("/");
+  //},
   profile: function (req, res, next) {
     let idUsuario=req.params.idUsuario;
     const filtro = {
