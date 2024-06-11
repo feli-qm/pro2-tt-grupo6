@@ -16,8 +16,8 @@ const usersController = {
     res.render('login');
   },
   loginPost: function (req, res) {
-    
-  }
+     
+  },
   register: function (req, res, next) {
     return res.render("register")
     
