@@ -129,7 +129,10 @@ hr {
 }
 
 .avisos{
-  font-size: 10px;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .main-navbar {

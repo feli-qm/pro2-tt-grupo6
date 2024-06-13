@@ -7,34 +7,36 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title">Resultados de búsqueda</h2>
+                <h2 class="products-title">Resultados de búsqueda: " <%= search %> "</h2>
             </div>
-            <% if(error) { %>
-            <p class="avisos"><%= error %></p>
+            <% if (error) { %>
+                <p class="avisos"><%= error %></p>
             <% } %>
 
-            <% productos.forEach(function(producto) { %>
+            <% for (let i = 0; i < productos.length; i++){ %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="/products/<%= producto.id %>">
+                    <a href="/products/<%= productos[i].id %>">
                         <figure class="product-box_image">
-                            <img src="/images/products/<%= producto.foto %>" alt="">
+                            <img src="/images/products/<%= productos[i].foto %>" alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2>
-                                <%= producto.nombreProducto %>
+                                <%= productos[i].nombreProducto %>
                             </h2>
                             <p>
-                                <%= producto.descProducto %>
-                            </p>
-                            <!-- Descomenta estas líneas si deseas mostrar comentarios -->
-                            <!-- <p>Comentarios: <%= //producto.productoEncontradoComentarios.length %> </p> NO ANDA -->
-                            <!-- <p>Cargado por: <a href="/users/profile/id/<%= //producto.usuario.id %>"><%= producto.usuario.usuario %></a></p> NO ANDA-->
-                        </article>
+                                <%= productos[i].descProducto %>
+                            </p> 
+                             <p>Comentarios: <%= productos[i].productoComentario.length %> </p> 
+        
+                            <p>Cargado por: <a href="/users/profile/id/<%= productos[i].productoUsuario.id %>"><%= productos[i].productoUsuario.nombre %></a></p>
+                        </article> 
+
                     </a>
                 </section>
             </div>
-            <% }); %>
+            <% }; %>
+          
         </div>
     </div>
     <%- include("./partials/footer") %>

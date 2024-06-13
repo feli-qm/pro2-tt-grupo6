@@ -1,6 +1,6 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
-const op= db.Sequelize.Op;
+const op= db.Sequelize.Op; //chequear que lo estemos usando sino borrarlo
 
 
 //crear el modulo en si
@@ -21,7 +21,7 @@ const productsController = {
         db.Producto.findByPk(idProducto, filtro)
         .then((resultados) => {
             //return res.send(resultados)
-            return res.render("product-detalle",{productoEncontrado: resultados, productoEncontradoComentarios: resultados.productoComentario})
+            return res.render("product-detalle",{productoEncontrado: resultados})
         }).catch((err) => {
             return console.log(err);
         });        

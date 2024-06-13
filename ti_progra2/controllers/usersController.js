@@ -1,7 +1,7 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
 const bcrypt = require("bcryptjs");
-const op = db.Sequelize.Op;
+const op = db.Sequelize.Op; //chequear que lo estemos usando sino borrarlo
 const {validationResult} = require("express-validator")
 
 //crear el modulo en si
