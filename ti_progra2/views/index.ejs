@@ -28,8 +28,10 @@
                             <article class="product-box_data">
                                 <h2><%= productos[i].nombreProducto %></h2>
                                 <p><%= productos[i].descProducto %></p>
-                                <p>Comentarios: <%= // productoEncontrado[i].comentarios.length  %> 	<!-- NO ANDA  -->
-                                <p>Cargado por: <a href="/users/profile/id/<%= //productos[i].usuario.id %>"><%= //productos[i].usuario.usuario %></a></p>
+                                <p>Comentarios: <%= productos[i].productoComentario.length %> </p> 
+                                <p>Cargado por: <a href="/users/profile/id/<%= productos[i].productoUsuario.id %>"><%= productos[i].productoUsuario.nombre %></a></p>
+        
+                            
                             </article>
                         </a>
                     </section>
@@ -56,8 +58,8 @@
                             <article class="product-box_data">
                                 <h2><%= productos[i].nombreProducto %></h2>
                                 <p><%= productos[i].descProducto %></p>
-                                <p>Comentarios: <%= // productoEncontrado[i].comentarios.length  %> 	<!-- NO ANDA  -->
-                                <p>Cargado por: <a href="/users/profile/id/<%= //productos[i].usuario.id %>"><%= //productos[i].usuario.usuario %></a></p>
+                                <p>Comentarios: <%= productos[i].productoComentario.length %> </p> 
+                                <p>Cargado por: <a href="/users/profile/id/<%= productos[i].productoUsuario.id %>"><%= productos[i].productoUsuario.nombre %></a></p>
                             </article>
                         </a>
                     </section>

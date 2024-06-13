@@ -7,7 +7,12 @@ const indexController = {
     index: function (req, res) {
         let filtro = {
             order: [ ['nombreProducto', 'DESC'], ['createdAt', 'DESC']   ]
-
+            ,
+            order: [["createdAt", "DESC"]],
+            include: [
+                { association: "productoUsuario" },
+                { association: "productoComentario" }
+            ]
         }
         db.Producto.findAll(filtro)
             .then((resultados) => {
@@ -26,12 +31,7 @@ const indexController = {
                         { nombreProducto: { [op.like]: "%" + search + "%" }}, //con que tenga una letra parecida ya aparece en el buscador
                         { descProducto: { [op.like]: "%" + search + "%" }}
                     ]
-                },
-                order: [["createdAt", "DESC"]],
-                include: [
-                    { association: "productoUsuario" },
-                    { association: "productoComentario" }
-                ]
+                }
             };
             db.Producto.findAll(filtro)
                 .then((resultados) => {
