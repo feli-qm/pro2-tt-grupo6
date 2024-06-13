@@ -31,7 +31,12 @@ const indexController = {
                         { nombreProducto: { [op.like]: "%" + search + "%" }}, //con que tenga una letra parecida ya aparece en el buscador
                         { descProducto: { [op.like]: "%" + search + "%" }}
                     ]
-                }
+                },
+                order: [["createdAt", "DESC"]],
+            include: [
+                { association: "productoUsuario" },
+                { association: "productoComentario" }
+            ]
             };
             db.Producto.findAll(filtro)
                 .then((resultados) => {
