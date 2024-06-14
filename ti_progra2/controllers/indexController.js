@@ -8,7 +8,6 @@ const indexController = {
         let filtro = {
             order: [ ['nombreProducto', 'DESC'], ['createdAt', 'DESC']   ]
             ,
-            order: [["createdAt", "DESC"]],
             include: [
                 { association: "productoUsuario" },
                 { association: "productoComentario" }
