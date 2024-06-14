@@ -6,8 +6,7 @@ const op= db.Sequelize.Op;
 const indexController = {
     index: function (req, res) {
         let filtro = {
-            order: [ ['nombreProducto', 'DESC'], ['createdAt', 'DESC']   ]
-            ,
+            order: [['createdAt', 'DESC']],
             include: [
                 { association: "productoUsuario" },
                 { association: "productoComentario" }
