@@ -15,7 +15,7 @@
 						<%=productoEncontrado.nombreProducto%>
 					</h2>
 					<p class="product-detail-description">
-						<a class="agregar" href="/products/add/<%= productoEncontrado.id %>">Agregar producto</a>
+						<a class="agregar" href="/products/edit/<%= productoEncontrado.id %>"> Editar</a>
 					</p>
 				</div>
 				<div class="product-detail">
@@ -25,7 +25,6 @@
 							<p class="product-detail-description">
 								<%= productoEncontrado.descProducto %>
 							</p>
-							<p><a class="editar" href="/products/edit/<%= productoEncontrado.id %>">Editar</a></p>
 						</article>
 						<div class="col-12 col-lg-4">
 							<section class="comments">

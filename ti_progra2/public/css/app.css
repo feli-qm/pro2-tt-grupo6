@@ -354,14 +354,15 @@ h1 {
 .agregar{
   display: inline; 
   width: 100px; 
-  padding: 7px; 
+  padding: 10px; 
   background-color: #c896a8;
   border: 1px solid #ccc; 
   text-decoration: none; 
   color: #333; 
-  font-size: 15px; 
+  font-size: 18px; 
   margin: 0 auto; 
   text-align: center;
+  font-weight: bold;
 }
 .product-detail-price {
   font-size: 5.5em;
