@@ -37,10 +37,10 @@
 
             <ul class="right-navbar">
                 <li><a href="/users/profile/id/<%= locals.user.id %>"><i class="fas fa-user"></i>
-                    </a>
+                    <%= locals.user.nombre%></a> 
                 </li>
                 <li>
-                    <form action="/" method="get">
+                    <form action="/users/logout" method="POST">
                         <button class="logout" type="submit" id="titulos">
                             Cerrar sesión <i class="fas fa-sign-in-alt"></i>
                         </button>
