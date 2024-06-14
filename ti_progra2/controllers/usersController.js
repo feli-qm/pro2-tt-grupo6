@@ -38,8 +38,13 @@ const usersController = {
   },
 
   register: function (req, res, next) {
-    return res.render("register")
-    
+      if (req.session.usuario != undefined) {
+          return res.redirect("/"); 
+      } 
+      else {
+          return res.render('register', {title: "Register"})
+      };
+ 
   },
   logout: function(req, res, next) {
     req.session.destroy()
