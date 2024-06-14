@@ -46,6 +46,14 @@ const productsController = {
             return console.log(err);
         })        
     },
+    edit: function (req, res) {
+        let idProducto=req.params.idProducto;
+        db.Producto.findByPk(idProducto)
+        .then (resultados => {
+            res.render("product-edit",{product: resultados})
+        })
+    },
+
     borrar: (req, res) => {
         db.Producto.destroy({
             where: {

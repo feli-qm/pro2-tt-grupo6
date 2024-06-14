@@ -13,7 +13,6 @@ const usersController = {
     else {
       res.render('login', {error:null})
     }
-    res.render('login');
   },
   loginPost: function (req, res) {
      let form = req.body;
@@ -27,7 +26,7 @@ const usersController = {
      .then((resultados) => {
       if (resultados != null){
         req.session.usuario = resultados;
-        return res.redirect("/index");
+        return res.redirect("/");
 
       } else {
         return res.send("No hay mail similar a: " + form.email);
@@ -42,7 +41,7 @@ const usersController = {
           return res.redirect("/"); 
       } 
       else {
-          return res.render('register', {title: "Register"})
+          return res.render('register')
       };
  
   },
@@ -62,14 +61,14 @@ const usersController = {
   //return res.send(idUsuario)
   db.Usuario.findByPk(idUsuario, filtro )
   .then((resultados) => {
-    return res.send(resultados)
-      //return res.render("profile",{perfil: resultados}) // preguntarle a Luis
+    //return res.send(resultados)
+    return res.render("profile",{perfil: resultados} ) // preguntarle a Luis
   }).catch((err) => {
       return console.log(err);
   });   
   },
   edicionPerfil: function (req, res, next) {
-    res.render('profile-edit', { });
+    res.render('profile-edit');
   },
   store: function(req, res){
     let form = req.body;
