@@ -33,7 +33,7 @@ app.use(function(req,res,next){
 //cookies = recordar al usuario
 app.use(function(req, res, next) {
   if (req.cookies.usuarioId != undefined && req.session.usuario == undefined) {
-      let id = req.cookies.usuarioIc;
+      let id = req.cookies.usuarioId;
 
       db.Usuario.findByPk(id)
       .then(function(resultados) {

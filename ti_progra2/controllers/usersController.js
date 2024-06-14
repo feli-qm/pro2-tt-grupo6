@@ -12,8 +12,7 @@ const usersController = {
     }
     else {
       res.render('login', {error:null})
-    }
-    res.render('login');
+    };
   },
   loginPost: function (req, res) {
      let form = req.body;
@@ -26,7 +25,7 @@ const usersController = {
      .then((resultados) => {
       if (resultados != null){
         req.session.usuario = resultados;
-        return res.redirect("/index");
+        return res.redirect("/");
 
       } else {
         return res.send("No hay mail similar a: " + form.email);
@@ -59,7 +58,7 @@ const usersController = {
       }],
   }
   //return res.send(idUsuario)
-  db.Usuario.findByPk(idUsuario, filtro )
+  db.Usuario.findByPk(idUsuario, filtro)
   .then((resultados) => {
     //return res.send(resultados)
     return res.render("profile",{perfil: resultados}) // preguntarle a Luis
