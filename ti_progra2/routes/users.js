@@ -32,7 +32,7 @@ let validationsLogin = [
 router.get('/login', usersController.loginGet);
 router.get('/register', usersController.register);
 
-router.get('/profile/:idUsuario', usersController.profile);
+router.get('/profile/:idUsuario', usersController.profile); 
 router.get('/edit', usersController.edicionPerfil);
 
 router.post('/login', validationsLogin, usersController.loginPost);

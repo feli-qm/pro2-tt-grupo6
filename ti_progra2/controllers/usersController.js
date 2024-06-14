@@ -59,14 +59,16 @@ const usersController = {
       }],
   }
   //return res.send(idUsuario)
-  db.Usuario.findByPk(idUsuario, filtro )
-  .then((resultados) => {
-    //return res.send(resultados)
-    return res.render("profile",{perfil: resultados} ) // preguntarle a Luis
-  }).catch((err) => {
-      return console.log(err);
-  });   
-  },
+    db.Usuario.findByPk(idUsuario, filtro )
+      .then(resultados => {
+        //return res.send(resultados)
+        return res.render("profile",{perfil: resultados} ) // preguntarle a Luis
+      })
+      .catch((err) => {
+          return console.log(err);
+      });   
+      },
+  
   edicionPerfil: function (req, res, next) {
     res.render('profile-edit');
   },
