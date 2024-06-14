@@ -35,9 +35,9 @@ router.get('/register', usersController.register);
 router.get('/profile/:idUsuario', usersController.profile);
 router.get('/edit', usersController.edicionPerfil);
 
-//router.post('/login', validationsLogin, usersController.loginPost);
+router.post('/login', validationsLogin, usersController.loginPost);
 router.post('/register', validationsRegister, usersController.store);
-//router.post('/logout', usersController.logout)
+router.post('/logout', usersController.logout)
 
 //exportar ruteador//
 module.exports = router;

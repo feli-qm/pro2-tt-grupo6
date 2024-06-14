@@ -23,7 +23,6 @@ const usersController = {
      };
 
      db.Usuario.findOne(filtro)
-
      .then((resultados) => {
       if (resultados != null){
         req.session.usuario = resultados;
