@@ -15,18 +15,37 @@ const usersController = {
     }
     res.render('login');
   },
-  //loginPost: function (req, res) {
-     
-  //},
+  loginPost: function (req, res) {
+     let form = req.body;
+
+     let filtro = {
+      where: [{email:form.email}]
+     };
+
+     db.Usuario.findOne(filtro)
+
+     .then((resultados) => {
+      if (resultados != null){
+        req.session.usuario = resultados;
+        return res.redirect("/index");
+
+      } else {
+        return res.send("No hay mail similar a: " + form.email);
+      }
+    }).catch((err) => {
+      return console.log(err);
+    }); 
+  },
+
   register: function (req, res, next) {
     return res.render("register")
     
   },
-  //logout: function(req, res, next) {
-   // req.session.destroy()
-   // res.clearCookie(“usuarioId”)
-    //return res.redirect("/");
-  //},
+  logout: function(req, res, next) {
+    req.session.destroy()
+    res.clearCookie("usuarioId")
+    return res.redirect("/");
+  },
   profile: function (req, res, next) {
     let idUsuario=req.params.idUsuario;
     const filtro = {
@@ -73,7 +92,7 @@ const usersController = {
               
   }
 }
-}
+};
 
 //exportar el modulo
 module.exports = usersController;

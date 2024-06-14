@@ -3,7 +3,11 @@
 <%- include("./partials/head") %>
 
 <body>
-    <%- include("./partials/header") %>
+    <% if (locals.usuario != undefined){%>
+        <%- include('./partials/headerLogueado')%>
+    <% } else { %>
+        <%- include('./partials/header') %>
+    <% } %>
     <!-- Banner -->
     <div class="banner">
         <img src="/images/banner.PNG" alt="Banner de ofertas">
