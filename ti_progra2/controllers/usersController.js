@@ -12,7 +12,7 @@ const usersController = {
     }
     else {
       res.render('login', {error:null})
-    };
+    }
   },
   loginPost: function (req, res) {
      let form = req.body;
@@ -22,6 +22,7 @@ const usersController = {
      };
 
      db.Usuario.findOne(filtro)
+
      .then((resultados) => {
       if (resultados != null){
         req.session.usuario = resultados;
@@ -40,7 +41,7 @@ const usersController = {
           return res.redirect("/"); 
       } 
       else {
-          return res.render('register', {title: "Register"})
+          return res.render('register')
       };
  
   },
@@ -65,7 +66,7 @@ const usersController = {
   });   
   },
   edicionPerfil: function (req, res, next) {
-    res.render('profile-edit', { });
+    res.render('profile-edit');
   },
   store: function(req, res){
     let form = req.body;

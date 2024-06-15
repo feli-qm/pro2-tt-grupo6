@@ -170,6 +170,7 @@ h1 {
   text-align: center;
 }
 
+
 /*====== Banner ======*/
 .banner {
   background-repeat: no-repeat;
@@ -350,6 +351,19 @@ h1 {
   line-height: 1.5;
 }
 
+.agregar{
+  display: inline; 
+  width: 100px; 
+  padding: 10px; 
+  background-color: #c896a8;
+  border: 1px solid #ccc; 
+  text-decoration: none; 
+  color: #333; 
+  font-size: 18px; 
+  margin: 0 auto; 
+  text-align: center;
+  font-weight: bold;
+}
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;
@@ -364,6 +378,18 @@ h1 {
   color: var(--green);
 }
 
+.editar{
+  display: block; 
+    width: 100px; 
+    padding: 7px; 
+    background-color: #c896a8;
+    border: 1px solid #ccc; 
+    text-decoration: none; 
+    color: #333; 
+    font-size: 15px; 
+    margin: 0 auto; 
+    text-align: center;
+}
 .small span {
   text-decoration: line-through;
 }
@@ -522,6 +548,7 @@ textarea.form-input {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    color: #fff;
   }
 
   .left-navbar a,
