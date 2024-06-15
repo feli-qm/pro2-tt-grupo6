@@ -57,10 +57,8 @@ const usersController = {
                 {association:'productoComentario'}]
       }],
   }
-  //return res.send(idUsuario)
   db.Usuario.findByPk(idUsuario, filtro)
   .then((resultados) => {
-    //return res.send(resultados)
     return res.render("profile",{perfil: resultados}) // preguntarle a Luis
   }).catch((err) => {
       return console.log(err);
@@ -88,8 +86,7 @@ const usersController = {
     }).catch((err) => {
       return console.log(err);
   }); 
-    }
-    else{
+    }else{
      
       return res.render('register', {errors: errors.mapped(), old: req.body});
               
