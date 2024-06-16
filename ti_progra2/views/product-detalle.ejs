@@ -11,11 +11,9 @@
 			<!-- product detail -->
 			<div class="container products-wrapper">
 				<div class="d-flex align-items-center">
-					<h2 class="products-title">
-						<%=productoEncontrado.nombreProducto%>
-					</h2>
+					<h2 class="products-title"> <%=productoEncontrado.nombreProducto%></h2>
 					<p class="product-detail-description">
-						<a class="agregar" href="/products/edit/<%= productoEncontrado.id %>"> Editar</a>
+						<a class="editar" href="/products/edit/<%= productoEncontrado.id %>"> Editar</a>
 					</p>
 				</div>
 				<div class="product-detail">
@@ -30,11 +28,11 @@
 							<section class="comments">
 								<% for (let i=0; i < productoEncontrado.productoComentario.length; i++){%>
                                     <article>
-                                        <img src="<%= productoEncontrado.productoComentario[i].comentariosUsuario.foto%>" alt="Foto de usuario"> 	
+                                        <img src="<%= productoEncontrado.productoComentario[i].comentarioUsuario.foto%>" alt="Foto de usuario"> 	
                                         <div class="data">
                                             <p class="user">
-                                                <strong> <a href="/users/profile/<%=productoEncontrado.productoComentario[i].comentariosUsuario.id%>">
-                                                        <%= productoEncontrado.productoComentario[i].comentariosUsuario.nombre %> 	
+                                                <strong> <a href="/users/profile/<%=productoEncontrado.productoComentario[i].comentarioUsuario.id%>">
+                                                        <%= productoEncontrado.productoComentario[i].comentarioUsuario.nombre %> 	
                                                     </a> </strong>
                                                 <%= productoEncontrado.productoComentario[i].comentario%> 
                                             </p>

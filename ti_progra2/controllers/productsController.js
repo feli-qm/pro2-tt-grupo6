@@ -1,6 +1,7 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
 const op= db.Sequelize.Op; //chequear que lo estemos usando sino borrarlo
+const {validationResult} = require("express-validator")
 
 
 //crear el modulo en si
@@ -10,7 +11,7 @@ const productsController = {
         const filtro = {
             include: [{
                 association: 'productoComentario', 
-                include: [{association:'comentariosUsuario'}]
+                include: [{association:'comentarioUsuario'}]
             }, {
                 association: 'productoUsuario'
             }],
@@ -46,14 +47,20 @@ const productsController = {
             return console.log(err);
         })        
     },
-    edit: function (req, res) {
-        let idProducto=req.params.idProducto;
-        db.Producto.findByPk(idProducto)
+    editGet: function (req, res) {
+        let form= req.body;
+        let id= form.id;
+        let filtro = {
+            include: [
+              {association: "productoUsuario"}
+            ]}
+        db.Producto.findByPk(id, filtro)
         .then (resultados => {
-            res.render("product-edit",{product: resultados})
+            console.log(resultados);
+            return res.send(resultados)
+            //return res.render("product-edit",{product: resultados})
         })
     },
-
     borrar: (req, res) => {
         db.Producto.destroy({
             where: {

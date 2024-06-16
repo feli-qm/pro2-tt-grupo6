@@ -278,13 +278,15 @@ h1 {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color:  #8e4962;
-  padding: 20px 0;
+  background-color: #8e4962;
+  padding: 20px 0; 
   margin-top: 80px;
+  position: relative;
 }
 
 .footer-data {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .footer-data i {
@@ -304,20 +306,15 @@ h1 {
   font-weight: 300;
 }
 
-.sub-footer {
-  border-top: 1px solid var(--light-gray);
-  background-color: #ffffff;
+.nombresFooter {
+  position: absolute;
+  bottom: 10px; 
+  right: 20px; 
+  color: #fff;
+  font-size: 1.2em;
+  margin-top: 20px; 
 }
 
-.sub-footer p {
-  margin: 0;
-  color: var(--gray);
-  padding: 15px 0;
-}
-
-#miIcono {
-  color: #ffecf5;
-}
 
 
 
@@ -351,7 +348,7 @@ h1 {
   line-height: 1.5;
 }
 
-.agregar{
+.editar{
   display: inline; 
   width: 100px; 
   padding: 10px; 

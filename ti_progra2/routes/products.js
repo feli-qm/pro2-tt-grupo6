@@ -5,7 +5,7 @@ const productsController= require("../controllers/productsController");
 
 //validations
 const {body} = require("express-validator");
-let validationsEdityAgregar = [
+let validationsEditYAgregar = [
     body('nombreProducto')
         .notEmpty().withMessage('El campo Nombre del Producto es obligatorio.'),
     body('descProducto')
@@ -20,11 +20,12 @@ let validationsEdityAgregar = [
 /* GET products listing. */
 router.get('/:idProducto', productsController.detalle);
 router.get('/add/:id', productsController.add); 
-router.get('/edit/:id', validationsEdityAgregar, productsController.edit)
+router.get('/edit/:id', productsController.editGet)
 
 //POST capturar la info del formulario//
 router.post("/")
 router.post('/add', productsController.store)
-//router.post('/edit', productsController.edit)
+//router.post('/edit', validationsEditYAgregar, productsController.editPost)
+
 //exportar ruteador//
 module.exports = router;

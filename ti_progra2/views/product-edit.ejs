@@ -20,12 +20,21 @@
 							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
 							<label for="foto">Imagen:</label>
 							<input type="text" id="foto" name="foto" required><br><br>
+							<% if (locals.errors && errors.foto) { %>
+								<p class="feedback"><%= errors.foto.msg %></p>
+							<% } %>
 
 							<label for="nombreProducto">Nombre del producto:</label>
 							<input type="text" id="nombreProducto" name="nombreProducto" required><br><br>
+							<% if (locals.errors && errors.nombreProducto) { %>
+								<p class="feedback"><%= errors.nombreProducto.msg %></p>
+							<% } %>
 
 							<label for="descProducto">Descripción:</label>
 							<input type="text" id="descProducto" name="descProducto" required><br><br>
+							<% if (locals.errors && errors.descProducto) { %>
+								<p class="feedback"><%= errors.descProducto.msg %></p>
+							<% } %>
 
 							<button type="submit">Enviar</button>
 						</form>
