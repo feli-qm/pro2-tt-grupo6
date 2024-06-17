@@ -33,11 +33,11 @@
 													<%= perfil.email%>
 												</li>
 												<li>
-													<%=productoEncontrado.length%> productos
+													<%=usuarioProducto.length%> productos
 												</li>
 												<li>200 seguidores</li>
 												<li>
-													<%= productoEncontrado.comentarios%> comentarios
+													<%= usuarioComentario.length%> comentarios
 												</li>
 											</ul>
 										</div>
@@ -52,22 +52,22 @@
 									<div class="col-12">
 										<h2 class="products-title">Mis productos</h2>
 									</div>
-									<% for (let i=0; i < productoEncontrado.length; i++) { %>
+									<% for (let i=0; i < usuarioProducto.length; i++) { %>
 										<!-- Show mis productos -->
 										<div class="col-12 col-sm-6 col-lg-3">
 											<section class="product-box">
-												<a href="/products/id/<%=productoEncontrado[i].id %>">
+												<a href="/products/id/<%=usuarioProducto[i].id %>">
 													<figure class="product-box_image">
-														<img src="<%= productoEncontrado[i].foto %>" alt="">
+														<img src="/images/products/<%= usuarioProducto[i].foto %>" alt="">
 													</figure>
 													<article class="product-box_data">
 														<h2>
-															<%= productoEncontrado[i].nombreProducto %>
+															<%= usuarioProducto[i].nombreProducto %>
 														</h2>
 														<p>
-															<%= productoEncontrado[i].descProducto %>
+															<%= usuarioProducto[i].descProducto %>
 														</p>
-														<p>Comentarios: <%= productoEncontrado[i].comentarios.length %>
+														<p>Comentarios: <%= usuarioProducto[i].comentario %> <!-- REVISAR POR QUE NO FUNCIONA CON .LENGTH -->
 														</p>
 													</article>
 												</a>

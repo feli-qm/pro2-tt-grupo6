@@ -55,7 +55,7 @@ const usersController = {
     const filtro = {
       include: [
         {association: 'usuarioProducto'}, 
-        {association:'productoComentario'}],
+        {association:'usuarioComentario'}],
       //order: [[{model: db.Producto, as: 'usuarioProducto'}, 'createdAt', 'DESC']]
   }
   db.Usuario.findByPk(idUsuario, filtro)
@@ -64,7 +64,7 @@ const usersController = {
     if (req.session.usuario != undefined && req.session.usuario.idUsuario == resultados.idUsuario){
       condition = true;
     }
-    return res.render("profile", {perfil: resultados});
+    return res.render("profile", {perfil: resultados, condition: condition, usuarioProducto: resultados.usuarioProducto, usuarioComentario: resultados.usuarioComentario});
   }).catch((err) => {
       return console.log(err);
   });   
