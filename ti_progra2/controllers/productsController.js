@@ -58,17 +58,17 @@ const productsController = {
             return res.render('product-add', { errors: errors.mapped(), old: req.body });
         }
     },    
-    editForm: function(req, res) {
-        let form = req.body;
-        let id = form.id;
+    edit: function(req, res) {
+        let idProducto = req.params.idProducto;
         let filtro = {
             include: [
                 { association: "productoUsuario" }
             ]
         };
     
-        db.Producto.findByPk(id, filtro)
+        db.Producto.findByPk(idProducto, filtro)
             .then((resultados) => {
+                //return res.send (resultados)
                 return res.render("product-edit", { product: resultados });
             })
             .catch((err) => {
@@ -76,75 +76,79 @@ const productsController = {
             });
     },
     
-    edit: function(req, res) {
+    editForm: function(req, res) {
         let form = req.body;
         let errors = validationResult(req);
-    
-        if (errors.isEmpty()) {
-            let filtro = {
-                where: {
-                    id: form.id
-                }
+
+        if (!errors.isEmpty()) {
+            let filtro2 = {
+                include: [{ association: "productoUsuario" }]
             };
-    
-            if (req.session.usuario != undefined) {
-                let idUsuario = req.session.idUsuario;
-                db.Producto.edit(form, filtro)
-                    .then((resultados) => {
-                        return res.redirect("/product/id/" + form.id);
+
+            db.Producto.findByPk(req.params.idProducto, filtro2)
+                .then((resultados) => {
+                    return res.render('product-edit', {
+                        errors: errors.array(),
+                        old: req.body,
+                        productoEncontrado: resultados
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    return res.status(500).send('Error interno del servidor');
+                });
+        } else {
+            let filtro = {
+                where: { id: req.params.idProducto }
+            };
+
+            if (req.session.usuario) {
+                db.Producto.update(form, filtro)
+                    .then(() => {
+                        return res.redirect("/products/id/" + req.params.idProducto);
                     })
                     .catch((err) => {
-                        return console.log(err);
+                        console.log(err);
+                        return res.status(500).send('Error interno del servidor');
                     });
             } else {
-                return res.redirect("/users/profile/id/" + form.id);
+                return res.redirect("/users/profile/id/" + req.params.idProducto);
             }
-        } else {
-            return res.redirect("/users/login");
         }
-    
-        let filtro2 = {
-            include: [{ association: "productoUsuario" }]
-        };
-    
-        db.Producto.findByPk(form.id, filtro2)
-            .then(function(resultados) {
-                return res.render('product-edit', {
-                    errors: errors.mapped(),
-                    old: req.body,
-                    productoEncontrado: resultados
-                });
-            })
-            .catch((err) => {
-                return console.log(err);
-            });
     },
     
     delete: function(req, res) {
-        let form = req.body;
-        let filtro = {
-            where: {
-                id: form.id
-            }
-        };
+        let idProducto = req.params.idProducto;
     
         if (req.session.usuario != undefined) {
             let idUsuario = req.session.idUsuario;
-            if (form.idUsuario == idUsuario) {
-                db.Producto.destroy(filtro)
-                    .then((resultados) => {
-                        return res.redirect("/");
-                    })
-                    .catch((err) => {
-                        return console.log(err);
-                    });
-            } else {
-                return res.redirect("/users/profile/id/" + idUsuario);
-            }
+    
+            db.Producto.findByPk(idProducto)
+                .then((resultados) => {
+                    if (resultados.idUsuario == idUsuario) {
+                        db.Producto.destroy({
+                            where: {
+                                id: idProducto
+                            }
+                        })
+                        .then(() => {
+                            return res.redirect("/");
+                        })
+                        .catch((err) => {
+                            return console.log(err);
+                        });
+                    } else {
+                        return res.redirect("/users/profile/id/" + idUsuario);
+                    }
+                })
+                .catch((err) => {
+                    return console.log(err);
+                });
         } else {
             return res.redirect("/users/login");
         }
     }
+    
 };    
 
 //exportar el modulo
