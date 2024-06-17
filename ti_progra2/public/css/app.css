@@ -116,6 +116,7 @@ hr {
   font-size: 18px;
 }
 
+
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
@@ -139,7 +140,6 @@ hr {
   margin-top: 20px;
   display: none;
 }
-
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
@@ -162,6 +162,7 @@ hr {
   padding: 5px 0;
   border-bottom: solid 1px var(--gray);
 }
+
 
 h1 {
   color:#f3a3b8;
@@ -319,6 +320,14 @@ h1 {
 
 
 /*====== Product Detail ======*/
+.usuario-producto{
+  font-size: 15px;
+}
+
+.usuario-producto2{
+  color:#8e4962;
+}
+
 .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
@@ -348,19 +357,42 @@ h1 {
   line-height: 1.5;
 }
 
-.editar{
-  display: inline; 
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center; 
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.editar, .eliminar {
+  display: block; 
   width: 100px; 
-  padding: 10px; 
+  padding: 7px; 
   background-color: #c896a8;
   border: 1px solid #ccc; 
   text-decoration: none; 
   color: #333; 
-  font-size: 18px; 
+  font-size: 15px; 
   margin: 0 auto; 
   text-align: center;
-  font-weight: bold;
 }
+
+.editar:hover, .eliminar:hover {
+  text-decoration: underline;
+}
+
+
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;
@@ -373,19 +405,6 @@ h1 {
 .small {
   font-size: 1.8em;
   color: var(--green);
-}
-
-.editar{
-  display: block; 
-    width: 100px; 
-    padding: 7px; 
-    background-color: #c896a8;
-    border: 1px solid #ccc; 
-    text-decoration: none; 
-    color: #333; 
-    font-size: 15px; 
-    margin: 0 auto; 
-    text-align: center;
 }
 .small span {
   text-decoration: line-through;

@@ -13,8 +13,16 @@
 				<div class="d-flex align-items-center">
 					<h2 class="products-title"> <%=productoEncontrado.nombreProducto%></h2>
 					<p class="product-detail-description">
-						<a class="editar" href="/products/edit/<%= productoEncontrado.id %>"> Editar</a>
+						<% if (condition) { %>
+							<div class="actions">
+								<a class="editar" href="/products/editProduct/<%= productoEncontrado.id %>">Editar</a>
+								<a class="eliminar" href="/products/delete/<%= productoUsuario.id %>">Eliminar</a>
+							</div>
 					</p>
+					<% } %>
+					<% if (!condition) { %>
+						<p class="usuario-producto">Producto cargado por <a class="usuario-producto2" href="/users/profile/<%= productoUsuario.id %>"><%= productoUsuario.nombre%></a></p>
+						<% } %>
 				</div>
 				<div class="product-detail">
 					<div class="row">
@@ -26,13 +34,13 @@
 						</article>
 						<div class="col-12 col-lg-4">
 							<section class="comments">
-								<% for (let i=0; i < productoEncontrado.productoComentario.length; i++){%>
+								<% for (let i=0; i < productoComentario.length; i++){%>
                                     <article>
-                                        <img src="<%= productoEncontrado.productoComentario[i].comentarioUsuario.foto%>" alt="Foto de usuario"> 	
+                                        <img src="<%= productoComentario[i].comentarioUsuario.foto%>" alt="Foto de usuario"> 	
                                         <div class="data">
                                             <p class="user">
-                                                <strong> <a href="/users/profile/<%=productoEncontrado.productoComentario[i].comentarioUsuario.id%>">
-                                                        <%= productoEncontrado.productoComentario[i].comentarioUsuario.nombre %> 	
+                                                <strong> <a href="/users/profile/<%=productoComentario[i].comentarioUsuario.id%>">
+                                                        <%= productoComentario[i].comentarioUsuario.nombre %> 	
                                                     </a> </strong>
                                                 <%= productoEncontrado.productoComentario[i].comentario%> 
                                             </p>

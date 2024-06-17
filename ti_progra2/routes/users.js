@@ -33,7 +33,7 @@ router.get('/login', usersController.loginGet);
 router.get('/register', usersController.register);
 
 router.get('/profile/:idUsuario', usersController.profile);
-router.get('/edit', usersController.edicionPerfil);
+//router.get('/edit', usersController.editProfile);
 
 router.post('/login', validationsLogin, usersController.loginPost);
 router.post('/register', validationsRegister, usersController.store);

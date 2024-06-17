@@ -18,14 +18,15 @@ let validationsEditYAgregar = [
 
 //crear rutas con sus sufijos//
 /* GET products listing. */
-router.get('/:idProducto', productsController.detalle);
+router.get('/:idProducto', productsController.detail);
 router.get('/add/:id', productsController.add); 
-router.get('/edit/:id', productsController.editGet)
 
 //POST capturar la info del formulario//
 router.post("/")
 router.post('/add', productsController.store)
-//router.post('/edit', validationsEditYAgregar, productsController.editPost)
+router.post('/editProduct', productsController.editForm)
+router.post('/edit', validationsEditYAgregar, productsController.edit);
+router.post('/delete', productsController.delete);
 
 //exportar ruteador//
 module.exports = router;

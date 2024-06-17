@@ -69,9 +69,9 @@ const usersController = {
       return console.log(err);
   });   
   },
-  edicionPerfil: function (req, res, next) {
-    res.render('profile-edit');
-  },
+  //editProfile: function (req, res, next) {
+   // res.render('profile-edit');
+  //},
   store: function(req, res){
     let form = req.body;
     let errors = validationResult(req);
