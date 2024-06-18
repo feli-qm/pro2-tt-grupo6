@@ -44,12 +44,13 @@ const productsController = {
     },
     store: function(req, res) {
         let form = req.body;
+        return res.send(form);
         let errors = validationResult(req);
         
         if (errors.isEmpty()) {
             db.Producto.create(form)
                 .then((resultados) => {
-                    return res.redirect("/products");
+                   return res.redirect("/");
                 })
                 .catch((err) => {
                     return console.log(err);
@@ -57,7 +58,7 @@ const productsController = {
         } else {
             return res.render('product-add', { errors: errors.mapped(), old: req.body });
         }
-    },    
+   },    
     edit: function(req, res) {
         let idProducto = req.params.idProducto;
         let filtro = {
