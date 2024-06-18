@@ -26,7 +26,7 @@ let validationComentario = [
 router.get('/:idProducto', productsController.detail);
 router.get('/add/:id', productsController.add); 
 router.get('/edit/:idProducto', productsController.edit)
-router.get('/delete', productsController.delete);
+//router.get('/delete', productsController.delete);
 
 //POST capturar la info del formulario//
 router.post("/")

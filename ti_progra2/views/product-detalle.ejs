@@ -19,9 +19,11 @@
 											<div class="actions">
 												<a class="editar"
 													href="/products/edit/<%= productoUsuario.id %>">Editar</a>
-												<a class="eliminar"
-													href="/products/delete/<%= productoUsuario.id %>">Eliminar</a>
-											</div>
+													<form action="/product/delete" method="POST">
+														<input type="hidden" name="id" >
+														<input class ="eliminar" type="submit" value="Eliminar">
+													</form>
+													</div>
 									</p>
 									<% } %>
 										<% if (!condition) { %>
@@ -54,8 +56,7 @@
 																		<%= productoComentario[i].comentarioUsuario.nombre
 																			%>
 																	</a> </strong>
-																<%=
-																	productoEncontrado.productoComentario[i].comentario%>
+																<%=productoEncontrado.productoComentario[i].comentario%>
 															</p>
 														</div>
 													</article>

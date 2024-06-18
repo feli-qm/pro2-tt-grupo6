@@ -69,7 +69,7 @@ const productsController = {
         db.Producto.findByPk(idProducto, filtro)
             .then((resultados) => {
                 //return res.send (resultados)
-                return res.render("product-edit", { product: resultados });
+                return res.render("product-edit", { productoUsuario: resultados.productoUsuario });
             })
             .catch((err) => {
                 return console.log(err);
@@ -78,24 +78,24 @@ const productsController = {
     
     editForm: function(req, res) {
         let form = req.body;
+        let idProducto = req.params.idProducto;
         let errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            let filtro2 = {
+            let filtro = {
                 include: [{ association: "productoUsuario" }]
             };
 
-            db.Producto.findByPk(req.params.idProducto, filtro2)
+            db.Producto.findByPk(idProducto, filtro)
                 .then((resultados) => {
                     return res.render('product-edit', {
                         errors: errors.array(),
                         old: req.body,
-                        productoEncontrado: resultados
+                        productoUsuario: resultados.productoUsuario
                     });
                 })
                 .catch((err) => {
                     console.log(err);
-                    return res.status(500).send('Error interno del servidor');
                 });
         } else {
             let filtro = {
@@ -105,50 +105,27 @@ const productsController = {
             if (req.session.usuario) {
                 db.Producto.update(form, filtro)
                     .then(() => {
-                        return res.redirect("/products/id/" + req.params.idProducto);
+                        return res.redirect("/products/id/" + idProducto);
                     })
                     .catch((err) => {
                         console.log(err);
-                        return res.status(500).send('Error interno del servidor');
                     });
             } else {
-                return res.redirect("/users/profile/id/" + req.params.idProducto);
+                return res.redirect("/users/profile/id/" + idProducto);
             }
         }
     },
-    
     delete: function(req, res) {
-        let idProducto = req.params.idProducto;
-    
-        if (req.session.usuario != undefined) {
-            let idUsuario = req.session.idUsuario;
-    
-            db.Producto.findByPk(idProducto)
-                .then((resultados) => {
-                    if (resultados.idUsuario == idUsuario) {
-                        db.Producto.destroy({
-                            where: {
-                                id: idProducto
-                            }
-                        })
-                        .then(() => {
-                            return res.redirect("/");
-                        })
-                        .catch((err) => {
-                            return console.log(err);
-                        });
-                    } else {
-                        return res.redirect("/users/profile/id/" + idUsuario);
-                    }
-                })
-                .catch((err) => {
-                    return console.log(err);
-                });
-        } else {
-            return res.redirect("/users/login");
-        }
+        let form= req.body;
+        db.Producto.destroy({
+            where: {
+                id: form.id
+            }
+        }) .then(() => {
+                res.redirect('/');
+        });
     },
-   
+    
     comment: function(req, res) {
         let form = req.body;
         let errors = validationResult(req);

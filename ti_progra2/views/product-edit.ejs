@@ -16,7 +16,7 @@
 					</div>
 					<!-- Show the "ultimos" products -->
 					<h2 class="col-12">
-						<form action="/products/edit" method="post">
+						<form action="/products/edit/<%= productoUsuario.id %>" method="post">
 							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
 							<label for="foto">Imagen:</label>
 							<input type="text" id="foto" name="foto" required><br><br>
