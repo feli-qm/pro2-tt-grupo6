@@ -15,6 +15,11 @@ let validationsEditYAgregar = [
         .isURL().withMessage('El campo Imagen debe ser una URL válida.')  
 ]
 
+let validationComentario = [
+    body("comentario")
+        .notEmpty().withMessage('El comentario no puede estar vacio').bail()
+        .isLength({min:3}).withMessage('Debe tener al menos 3 caracteres')
+];
 
 //crear rutas con sus sufijos//
 /* GET products listing. */
@@ -29,6 +34,7 @@ router.post('/add', productsController.store)
 //router.post('/editProduct/:idProducto', productsController.edit)
 router.post('/edit/:idProducto', validationsEditYAgregar, productsController.editForm);
 router.post('/delete', productsController.delete);
+router.post('/:idProducto', validationComentario, productsController.comment); 
 
 //exportar ruteador//
 module.exports = router;

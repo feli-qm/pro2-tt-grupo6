@@ -147,8 +147,46 @@ const productsController = {
         } else {
             return res.redirect("/users/login");
         }
+    },
+   
+    comment: function(req, res) {
+        let form = req.body;
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let comentario = {
+                idUsuario: req.session.usuario.idUsuario, //chequear si es asi 
+                idPost: req.params.id, //chequear si se llama asi
+                comentario: form.comentario
+            };
+            db.Comentario.create(comentario)
+            .then((resultados) => {
+                return res.redirect("/products/" + comentario.idPost);
+            })
+            .catch((err) => {
+                return console.log(err);
+            });
+        } else {
+            let id = req.params.id;
+            let condition = false;
+            let filtro = {
+                include: [
+                    {association: "usuarioComentario"},
+                    {association: "productoComentario",
+                    include:[{association:"comentarioUsuario"}
+                ]}
+            ]
+            }
+            db.Producto.findByPk(id, filtro)
+            .then(function(resultados){
+                if (req.session.usuario != undefined && req.session.usuario.idUsuario == resultados.idUsuario){
+                    condition = true;
+            }
+            return res.render("product-detalle", {productoEncontrado: resultados, comentarios: resultados.productoComentario, codition: condition, errors: errors.mapped(), old: req.body})})
+            .catch(function(error){
+                console.log(error);
+            });
+        }
     }
-    
 };    
 
 //exportar el modulo
