@@ -44,7 +44,6 @@ const productsController = {
     },
     store: function(req, res) {
         let form = req.body;
-        return res.send(form);
         let errors = validationResult(req);
         
         if (errors.isEmpty()) {
