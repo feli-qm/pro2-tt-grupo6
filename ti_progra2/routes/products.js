@@ -30,12 +30,9 @@ router.get('/edit/:idProducto', productsController.edit)
 
 //POST capturar la info del formulario//
 router.post("/")
-<<<<<<< HEAD
 router.post('/add', validationsEditYAgregar, productsController.store)
 //router.post('/editProduct/:idProducto', productsController.edit)
-=======
 router.post('/add', productsController.store)
->>>>>>> ad14bf3ce4ef4cd5b9285dc6e5192dbd5db09521
 router.post('/edit/:idProducto', validationsEditYAgregar, productsController.editForm);
 router.post('/delete', productsController.delete);
 router.post('/:idProducto', validationComentario, productsController.comment); 
