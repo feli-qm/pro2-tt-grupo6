@@ -24,13 +24,13 @@ let validationComentario = [
 //crear rutas con sus sufijos//
 /* GET products listing. */
 router.get('/:idProducto', productsController.detail);
-router.get('/add/:id', productsController.add); 
+router.get('/add', productsController.add); 
 router.get('/edit/:idProducto', productsController.edit)
 //router.get('/delete', productsController.delete);
 
 //POST capturar la info del formulario//
 router.post("/")
-router.post('/add', productsController.store)
+router.post('/add', validationsEditYAgregar, productsController.store)
 //router.post('/editProduct/:idProducto', productsController.edit)
 router.post('/edit/:idProducto', validationsEditYAgregar, productsController.editForm);
 router.post('/delete', productsController.delete);

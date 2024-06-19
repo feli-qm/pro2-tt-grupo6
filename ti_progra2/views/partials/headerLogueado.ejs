@@ -36,7 +36,7 @@
             </ul>
 
             <ul class="right-navbar">
-                <li><a id="titulos" href="/users/profile/id/<%=locals.user.id %>"><i class="fas fa-user"><%=locals.user.nombre %></i></a></li>
+                <li><a id="titulos" href="/users/profile/<%=locals.user.id %>"><i class="fas fa-user"><%=locals.user.nombre %></i></a></li>
                 <li>
                     <form action="/users/logout" method="POST">
                         <button class="logout" type="submit" id="titulos">

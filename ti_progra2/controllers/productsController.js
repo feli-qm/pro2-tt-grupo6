@@ -40,7 +40,11 @@ const productsController = {
             });
     }, 
     add: function (req, res) {
-        return res.render('product-add', { perfil: products.usuario });
+        if (req.session.usuario  != undefined) {
+            return res.render("product-add");
+        }else{
+            return res.redirect("/users/login");
+        }
     },
     store: function(req, res) {
         let form = req.body;
@@ -49,13 +53,13 @@ const productsController = {
         if (errors.isEmpty()) {
             db.Producto.create(form)
                 .then((resultados) => {
-                   return res.redirect("/");
+                   return res.redirect("/products/" +resultados.id);
                 })
                 .catch((err) => {
                     return console.log(err);
                 });
         } else {
-            return res.render('product-add', { errors: errors.mapped(), old: req.body });
+            return res.render('product-add', {errors: errors.mapped(), old: req.body });
         }
    },    
     edit: function(req, res) {

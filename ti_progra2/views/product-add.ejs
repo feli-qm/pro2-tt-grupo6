@@ -18,14 +18,29 @@
 					<h2 class="col-12">
 						<form action="/products/add" method="POST">
 							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
+
+							<input type="hidden" name="idUsuario" value="<%= locals.user.id %>">
+
 							<label for="foto">Imagen:</label>
-							<input type="text" id="foto" name="foto" required><br><br>
+							<input type="text" id="foto" name="foto" required value="<%= locals.old !== undefined && old.foto ? old.foto: ""%>"><br><br>
+
+							<% if (locals.errrors && errors.foto) {%>
+								<p><% errors.foto.msg %></p>
+								<% } %>
 
 							<label for="nombreProducto">Nombre del producto:</label>
-							<input type="text" id="nombreProducto" name="nombreProducto" required><br><br>
+							<input type="text" id="nombreProducto" name="nombreProducto" required value="<%= locals.old !== undefined && old.nombreProducto ? old.nombreProducto: ""%>"><br><br>
+
+							<% if (locals.errrors && errors.nombreProducto) {%>
+								<p><% errors.nombreProducto.msg %></p>
+								<% } %>
 
 							<label for="descProducto">Descripción:</label>
-							<input type="text" id="descProducto" name="descProducto" required><br><br>
+							<input type="text" id="descProducto" name="descProducto" required value="<%= locals.old !== undefined && old.descProducto ? old.descProducto: ""%>"><br><br>
+
+							<% if (locals.errrors && errors.descProducto) {%>
+								<p><% errors.descProducto.msg %></p>
+								<% } %>
 
 							<button type="submit">Enviar</button>
 						</form>
