@@ -62,18 +62,18 @@ const productsController = {
             return res.render('product-add', {errors: errors.mapped(), old: req.body });
         }
    },    
-    edit: function(req, res) {
-        let idProducto = req.params.idProducto;
-        let filtro = {
-            include: [
-                { association: "productoUsuario" }
-            ]
-        };
-    
-        db.Producto.findByPk(idProducto, filtro)
+   edit: function(req, res) {
+    let form= req.body;
+    let id=form.id;
+    let filtro = {
+    include: [
+    { association: "productoUsuario" }
+    ]
+    };
+        db.Producto.findByPk(id, filtro)
             .then((resultados) => {
                 //return res.send (resultados)
-                return res.render("product-edit", { productoUsuario: resultados.productoUsuario });
+                return res.render("product-edit", { productoEncontrado: resultados, productoUsuario: resultados.productoUsuario });
             })
             .catch((err) => {
                 return console.log(err);
@@ -82,53 +82,77 @@ const productsController = {
     
     editForm: function(req, res) {
         let form = req.body;
-        let idProducto = req.params.idProducto;
+        //let idProducto = req.params.idProducto;
         let errors = validationResult(req);
-
+    
         if (!errors.isEmpty()) {
-            let filtro = {
-                include: [{ association: "productoUsuario" }]
-            };
-
-            db.Producto.findByPk(idProducto, filtro)
+            let filtro = { 
+                where: { 
+                    id: form.id 
+                } };
+            if (req.session.usuario != undefined) {
+                let id = req.session.usuario.idUsuario;
+                if (form.idUsuario == id) {
+                    db.Producto.update(form, filtro)
+                        .then(() => {
+                            return res.redirect("/products/id/" + form.id);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                } else {
+                    return res.redirect("/users/profile/id/" + id);
+                }
+            } else {
+                return res.redirect("/users/login");
+            }
+        } else {
+            let filtro2 = { 
+                include: [
+                    { association: "productoUsuario" }
+                ] };
+            db.Producto.findByPk(form.id, filtro2)
                 .then((resultados) => {
                     return res.render('product-edit', {
-                        errors: errors.array(),
+                        errors: errors.mapped(),
                         old: req.body,
+                        productoEncontrado: resultados,
                         productoUsuario: resultados.productoUsuario
                     });
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-        } else {
-            let filtro = {
-                where: { id: req.params.idProducto }
-            };
-
-            if (req.session.usuario) {
-                db.Producto.update(form, filtro)
-                    .then(() => {
-                        return res.redirect("/products/id/" + idProducto);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            } else {
-                return res.redirect("/users/profile/id/" + idProducto);
-            }
         }
     },
+    
     delete: function(req, res) {
-        let form= req.body;
-        db.Producto.destroy({
-            where: {
-                id: form.id
+        let form = req.body;
+        let filtro = {
+          where: {
+            id: form.id
+          }
+        }
+
+        if (req.session.usuario != undefined) {
+            let id = req.session.usuario.idUsuario;
+            if (form.idUsuario == id) {
+                db.Producto.destroy(filtro)
+                .then((resultados) => {
+                  return res.redirect("/");
+                })
+                .catch((err) => {
+                  return console.log(err);
+                });
             }
-        }) .then(() => {
-                res.redirect('/');
-        });
-    },
+            else{
+                return res.redirect("/users/profile/id/" + id);
+            }
+        }
+        else{
+            return res.redirect("/users/login");
+        }        
+       },
     
     comment: function(req, res) {
         let form = req.body;

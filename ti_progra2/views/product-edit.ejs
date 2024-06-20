@@ -16,22 +16,25 @@
 					</div>
 					<!-- Show the "ultimos" products -->
 					<h2 class="col-12">
-						<form action="/products/edit/<%= productoUsuario.id %>" method="post">
+						<form action="/products/edit" method="post">
+							<input type="hidden" name="id" value="<%= productoEncontrado.id %>">
+							<input type="hidden" name="idUsuario" value="<%= productoUsuario.id  %>">
+
 							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
 							<label for="foto">Imagen:</label>
-							<input type="text" id="foto" name="foto" required><br><br>
+							<input type="text" id="foto" name="foto" value="<%= (locals.old && locals.old.foto !== undefined) ? locals.old.foto : (productoEncontrado && productoEncontrado.foto) %>"><br><br>
 							<% if (locals.errors && errors.foto) { %>
 								<p class="feedback"><%= errors.foto.msg %></p>
 							<% } %>
 
 							<label for="nombreProducto">Nombre del producto:</label>
-							<input type="text" id="nombreProducto" name="nombreProducto" required><br><br>
+							<input type="text" id="nombreProducto" name="nombreProducto" value="<%= (locals.old && locals.old.nombreProducto !== undefined) ? locals.old.nombreProducto : (productoEncontrado && productoEncontrado.nombreProducto) %>"><br><br>
 							<% if (locals.errors && errors.nombreProducto) { %>
 								<p class="feedback"><%= errors.nombreProducto.msg %></p>
 							<% } %>
 
 							<label for="descProducto">Descripción:</label>
-							<input type="text" id="descProducto" name="descProducto" required><br><br>
+							<input type="text" id="descProducto" name="descProducto" value="<%= (locals.old && locals.old.descProducto !== undefined) ? locals.old.descProducto : (productoEncontrado && productoEncontrado.descProducto) %>"><br><br>
 							<% if (locals.errors && errors.descProducto) { %>
 								<p class="feedback"><%= errors.descProducto.msg %></p>
 							<% } %>

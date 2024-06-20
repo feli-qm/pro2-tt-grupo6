@@ -17,11 +17,16 @@
 									<p class="product-detail-description">
 										<% if (condition) { %>
 											<div class="actions">
-												<a class="editar"
-													href="/products/edit/<%= productoUsuario.id %>">Editar</a>
+												<form action="/products/editProduct" method="post">
+													<input type="hidden" name="id" value="<%= productoEncontrado.id %>" >
+													<input type="hidden" name="idUsuario" value="<%= productoUsuario.id%>">
+													<button class ="editar" type="submit"><a>Editar</a></button>
+												</form>
+													
 													<form action="/product/delete" method="POST">
-														<input type="hidden" name="id" >
-														<input class ="eliminar" type="submit" value="Eliminar">
+														<input type="hidden" name="id" value= "<%= productoEncontrado.id %>">
+														<input type="hidden" name="idUsuario" value="<%= productoUsuario.id%>">
+														<button class ="eliminar" type="submit"><a>Eliminar</a></button>
 													</form>
 													</div>
 									</p>
