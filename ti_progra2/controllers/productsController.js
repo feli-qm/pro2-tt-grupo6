@@ -146,7 +146,7 @@ const productsController = {
                 });
             }
             else{
-                return res.redirect("/users/profile/id/" + id);
+                return res.redirect("/users/profile/" + id);
             }
         }
         else{
