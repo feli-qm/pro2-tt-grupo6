@@ -19,13 +19,13 @@
 						<form action="/users/register" method="post">
 							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
 							<label for="email">Email:</label>
-							<input type="email" id="email" name="email" ><br><br>
+							<input type="email" id="email" name="email" value="<%= locals.old !== undefined && old.email ? old.email : "" %>"><br><br>
 							<% if (locals.errors && errors.email) { %>
 								<p class="feedback"><%= errors.email.msg %></p>
 								<% } %>
 
 							<label for="nombre">Usuario:</label>
-							<input type="text" id="nombre" name="nombre" ><br><br>
+							<input type="text" id="nombre" name="nombre" value="<%= locals.old !== undefined && old.nombre ? old.nombre : "" %>"><br><br>
 							<% if (locals.errors && errors.usuario) { %>
 								<p class="feedback"><%= errors.usuario.msg %></p>
 								<% } %>
