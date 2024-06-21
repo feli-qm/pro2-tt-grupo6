@@ -2,6 +2,9 @@
 var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/usersController');
+const db = require('../database/models');
+const bycrypt = require("bcryptjs");
+const session = require('express-session');
 
 //validaciones PREGUNTAR SI VA ACA O EN ROUTES INDEX (registro)
 const {body} = require("express-validator");
@@ -21,10 +24,35 @@ let validationsLogin = [
     body("email")
     .notEmpty().withMessage("Debes completar este campo con tu email").bail()
     .isEmail().withMessage("verifica que este email sea valido").bail()
+    .custom(function(value, {req}){
+    return db.Usuario.findOne({where: {email: req.body.email},})
+    .then(function(usuario){
+        if (usuario != undefined){
+            return true;
+        }
+        else{
+            throw new Error ("El email no existe")
+        }
+    })
+    
+}    
+)
    ,
    body("contrasenia")
-    .notEmpty().withMessage("Debes completar este campo con tu contraseña")
-    .isLength({min:4}).withMessage("Debes ingresar un minimo de 4 caracteres"),   
+    .notEmpty().withMessage("Debes completar este campo con tu contraseña").bail()
+    .custom(function(value, {req}){
+        return db.Usuario.findOne({where: {email: req.body.email},})
+        .then(function(resultados){
+            if (resultados != undefined){
+                let revision = bycrypt.compareSync(req.body.contrasenia, resultados.contrasenia);
+                if (!revision){
+                    throw new Error ("La contrasenia no es correcta")
+                }
+            }else{
+                throw new Error ("No existe el email, por favor registrese")
+            }
+        })  
+    })
 ]
 
 //crear rutas con sus sufijos//

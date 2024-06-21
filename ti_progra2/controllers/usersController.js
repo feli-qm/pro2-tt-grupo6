@@ -7,25 +7,29 @@ const {validationResult} = require("express-validator")
 //crear el modulo en si
 const usersController = {
   loginGet: function (req, res) {
-    if (req.session.usuario){
-      res.redirect('/')
+    if (req.session.usuario != undefined){
+      return res.redirect('/')
     }
     else {
-      res.render('login', {error:null})
+      return res.render('login', {error:null})
     }
   },
   loginPost: function (req, res) {
      let form = req.body;
+     let errors = validationResult(req);
 
-     let filtro = {
-      where: [{email:form.email}]
-     };
-
-     db.Usuario.findOne(filtro)
+     if (errors.isEmpty()){
+      let filtro = {
+        where: [{email:form.email}]
+       }
+       db.Usuario.findOne(filtro)
 
      .then((resultados) => {
       if (resultados != null){
         req.session.usuario = resultados;
+        if(form.recordarme != undefined){
+          res.cookie("usuarioId", resultados.id, {maxAge: 1000 * 60 * 35})
+        }
         return res.redirect("/");
 
       } else {
@@ -34,7 +38,10 @@ const usersController = {
     }).catch((err) => {
       return console.log(err);
     }); 
-  },
+  }else{
+    res.render('login', {errors: errors.mapped(), old: req.body, usuario: req.session.usuario});
+  }
+     },
 
   register: function (req, res, next) {
       if (req.session.usuario != undefined) {
