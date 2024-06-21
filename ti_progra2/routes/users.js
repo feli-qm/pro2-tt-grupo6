@@ -11,12 +11,24 @@ const {body} = require("express-validator");
 let validationsRegister = [
     body("email")
     .notEmpty().withMessage("Debes completar este campo con tu email").bail()
-    .isEmail().withMessage("verifica que este email sea valido").bail()
-   ,
+    .isEmail().withMessage("Verifica que este email sea valido")
+    .custom(function(value,{req}){
+        return db.Usuario.findOne({where: {email: req.body.email}})
+        .then(function(user){
+            if (user == undefined){
+                return true;
+            }
+            else{
+                throw new Error ("El email ya existe")
+            }
+        })
+        
+    }    
+    ),
     body("nombre")
     .notEmpty().withMessage("Debes completar este campo con tu nombre de usuario"),
     body("contrasenia")
-    .notEmpty().withMessage("Debes completar este campo con tu contraseña")
+    .notEmpty().withMessage("Debes completar este campo con tu contraseña").bail()
     .isLength({min:4}).withMessage("Debes ingresar un minimo de 4 caracteres"),   
 ]
 
@@ -25,7 +37,7 @@ let validationsLogin = [
     .notEmpty().withMessage("Debes completar este campo con tu email").bail()
     .isEmail().withMessage("verifica que este email sea valido").bail()
     .custom(function(value, {req}){
-    return db.Usuario.findOne({where: {email: req.body.email},})
+    return db.Usuario.findOne({where: {email: req.body.email}})
     .then(function(usuario){
         if (usuario != undefined){
             return true;
@@ -46,7 +58,7 @@ let validationsLogin = [
             if (resultados != undefined){
                 let revision = bycrypt.compareSync(req.body.contrasenia, resultados.contrasenia);
                 if (!revision){
-                    throw new Error ("La contrasenia no es correcta")
+                    throw new Error ("La contraseña no es correcta")
                 }
             }else{
                 throw new Error ("No existe el email, por favor registrese")
