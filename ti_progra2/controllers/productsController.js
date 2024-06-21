@@ -23,15 +23,15 @@ const productsController = {
         db.Producto.findByPk(idProducto, filtro)
             .then((resultados) => {
                 let condition = false;
-                if (req.session.usuario  != undefined && req.session.usuario.idUsuario == resultados.idProducto) {
+                if (req.session.usuario  != undefined && req.session.usuario.idProducto == resultados.idProducto) {
                     condition = true;
                 }
                 return res.render("product-detalle", { 
                     productoEncontrado: resultados,
                     condition: condition,
-                    productoUsuario: resultados.productoUsuario,
                     comentarioUsuario: resultados.comentarioUsuario,
-                    productoComentario: resultados.productoComentario
+                    productoComentario: resultados.productoComentario,
+                    productoUsuario: resultados.productoUsuario
                 });
             })
             .catch((err) => {
@@ -91,7 +91,7 @@ const productsController = {
                     id: form.id 
                 } };
             if (req.session.usuario != undefined) {
-                let id = req.session.usuario.idUsuario;
+                let id = req.session.usuario.id;
                 if (form.idUsuario == id) {
                     db.Producto.update(form, filtro)
                         .then(() => {
@@ -135,7 +135,7 @@ const productsController = {
         }
 
         if (req.session.usuario != undefined) {
-            let id = req.session.usuario.idUsuario;
+            let id = req.session.usuario.id;
             if (form.idUsuario == id) {
                 db.Producto.destroy(filtro)
                 .then((resultados) => {
@@ -159,7 +159,7 @@ const productsController = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let comentario = {
-                idUsuario: req.session.usuario.idUsuario, //chequear si es asi 
+                idUsuario: req.session.usuario.id, //chequear si es asi 
                 idPost: req.params.id, //chequear si se llama asi
                 comentario: form.comentario
             };
@@ -183,7 +183,7 @@ const productsController = {
             }
             db.Producto.findByPk(id, filtro)
             .then(function(resultados){
-                if (req.session.usuario != undefined && req.session.usuario.idUsuario == resultados.idUsuario){
+                if (req.session.usuario != undefined && req.session.usuario.id == resultados.id){
                     condition = true;
             }
             return res.render("product-detalle", {productoEncontrado: resultados, comentarios: resultados.productoComentario, codition: condition, errors: errors.mapped(), old: req.body})})

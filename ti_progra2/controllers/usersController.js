@@ -63,7 +63,7 @@ const usersController = {
       include: [
         {association: 'usuarioProducto'}, 
         {association:'usuarioComentario'}],
-      //order: [[{model: db.Producto, as: 'usuarioProducto'}, 'createdAt', 'DESC']]
+      order: [[{model: db.Producto, as: 'usuarioProducto'}, 'createdAt', 'DESC']]
   }
   db.Usuario.findByPk(idUsuario, filtro)
   .then((resultados) => {
@@ -89,7 +89,7 @@ const usersController = {
         contrasenia: bcrypt.hashSync(form.contrasenia, 10),
         fechaNacimiento: form.fechaNacimiento,
         numeroDocumento: form.numeroDocumento,
-        foto: form.foto,
+        foto: form.foto || "/images/users/default-image.png"
     }
 
     db.Usuario.create(usuarioCreado)
