@@ -25,8 +25,15 @@ app.use(session({ secret: "Mensaje secreto",
                   saveUninitialized: true}));
 
 app.use(function(req,res,next){
+
+  console.log('req.session:', req.session);
+
   if (req.session.usuario != undefined) {
-    res.locals.user = req.session.usuario; //revisar si funciona .user en el login(cuando feli lo termine)
+
+    res.locals.user = req.session.usuario; 
+
+     console.log('Entre a locals');
+      console.log(res.locals);
   }
   return next()
 });
