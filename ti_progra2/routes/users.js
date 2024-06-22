@@ -69,7 +69,7 @@ let validationsLogin = [
 
 let valdiationsEdit = [
     body("email")
-    .notEmpty().withMessage("El campo email es obligatorio.").bail(),
+    .notEmpty().withMessage("El campo email es obligatorio.").bail()
     .isEmail().withMessage("Debe ser valido").bail(),
 
     body("nombre")
