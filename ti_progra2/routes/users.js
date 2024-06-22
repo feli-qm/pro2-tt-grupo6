@@ -67,17 +67,30 @@ let validationsLogin = [
     })
 ]
 
+let valdiationsEdit = [
+    body("email")
+    .notEmpty().withMessage("El campo email es obligatorio.").bail(),
+    .isEmail().withMessage("Debe ser valido").bail(),
+
+    body("nombre")
+    .notEmpty().withMessage("Debes introducir en este campo  tu nombre de usuario"),
+    body("contrasenia")
+    .notEmpty().withMessage("Este campo es obligatorio").bail()
+    .isLength({min:4}).withMessage("Debes ingresar un minimo de 4 caracteres"),  
+]
+
 //crear rutas con sus sufijos//
 /* GET users listing. */
 router.get('/login', usersController.loginGet);
 router.get('/register', usersController.register);
 
 router.get('/profile/:idUsuario', usersController.profile);
-//router.get('/edit', usersController.editProfile);
+router.get('/edit', usersController.editProfile);
 
 router.post('/login', validationsLogin, usersController.loginPost);
 router.post('/register', validationsRegister, usersController.store);
-router.post('/logout', usersController.logout)
+router.post('/logout', usersController.logout);
+router.post('/edit', valdiationsEdit, usersController.editProfile)
 
 //exportar ruteador//
 module.exports = router;

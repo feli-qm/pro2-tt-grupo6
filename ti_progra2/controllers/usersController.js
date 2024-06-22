@@ -76,9 +76,21 @@ const usersController = {
       return console.log(err);
   });   
   },
-  //editProfile: function (req, res, next) {
-   // res.render('profile-edit');
-  //},
+  editProfile: function (req, res, next) {
+    if(req.session.usuario != undefined){
+      let id = req.session.usuario.id;
+      db.Usuario.findByPk(id)
+      .then(function(resultados){
+        return res.render('profile-edit', {usuario: results});
+      })
+      .catch(function(error){
+        console.log(error);
+      });
+    }else{
+      return res.redirect("/users/login");
+    }
+  },
+  
   store: function(req, res){
     let form = req.body;
     let errors = validationResult(req);
