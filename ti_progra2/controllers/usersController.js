@@ -2,120 +2,126 @@
 const db = require('../database/models');
 const bcrypt = require("bcryptjs");
 const op = db.Sequelize.Op; //chequear que lo estemos usando sino borrarlo
-const {validationResult} = require("express-validator")
+const { validationResult } = require("express-validator")
 
 //crear el modulo en si
 const usersController = {
   loginGet: function (req, res) {
-    if (req.session.user != undefined){
+    if (req.session.user != undefined) {
       return res.redirect('/')
     }
     else {
-      return res.render('login', {error:null})
+      return res.render('login', { error: null })
     }
   },
   loginPost: function (req, res) {
-     let form = req.body;
-     let errors = validationResult(req);
+    let form = req.body;
+    let errors = validationResult(req);
 
-     if (errors.isEmpty()){
+    if (errors.isEmpty()) {
       let filtro = {
-        where: [{email:form.email}]
-       }
-       db.Usuario.findOne(filtro)
+        where: [{ email: form.email }]
+      };
+      db.Usuario.findOne(filtro)
+        .then((resultados) => {
 
-     .then((resultados) => {
-      if (resultados != null){
-        req.session.user = resultados;
-        if(form.recordarme != undefined){
-          res.cookie("usuarioId", resultados.id, {maxAge: 1000 * 60 * 35})
-        }
-        return res.redirect("/");
-
-      } else {
-        return res.send("No hay mail similar a: " + form.email);
-      }
-    }).catch((err) => {
-      return console.log(err);
-    }); 
-  }else{
-    res.render('login', {errors: errors.mapped(), old: req.body, usuario: req.session.user});
-  }
-     },
+          if (resultados != null) {
+            
+            let check = bcrypt.compareSync(form.contrasenia, resultados.contrasenia);
+            
+            if (check) {
+              req.session.user = resultados;
+              if (form.recordarme != undefined) {
+                res.cookie("usuarioId", resultados.id, { maxAge: 1000 * 60 * 35 })
+              }
+              return res.redirect("/");
+            } else {
+              return res.send("Error en la contrasenia");
+            }
+          }else{
+            return res.send("No hay mail parecidos a: " + form.email);
+          }
+        }).catch((err) => {
+            return console.log(err);
+          });
+    } else {
+      res.render('login', { errors: errors.mapped(), old: req.body, usuario: req.session.user });
+    }
+  },
 
   register: function (req, res, next) {
-      if (req.session.user != undefined) {
-          return res.redirect("/"); 
-      } 
-      else {
-          return res.render('register')
-      };
- 
+    if (req.session.user != undefined) {
+      return res.redirect("/");
+    }
+    else {
+      return res.render('register')
+    };
+
   },
-  logout: function(req, res, next) {
+  logout: function (req, res, next) {
     req.session.destroy()
     res.clearCookie("usuarioId")
     return res.redirect("/");
   },
   profile: function (req, res, next) {
-    let idUsuario=req.params.idUsuario;
+    let idUsuario = req.params.idUsuario;
     const filtro = {
       include: [
-        {association: 'usuarioProducto'}, 
-        {association:'usuarioComentario'}],
-      order: [[{model: db.Producto, as: 'usuarioProducto'}, 'createdAt', 'DESC']]
-  }
-  db.Usuario.findByPk(idUsuario, filtro)
-  .then((resultados) => {
-    let condition = false;
-    if (req.session.user != undefined && req.session.user.idUsuario == resultados.idUsuario){
-      condition = true;
+        { association: 'usuarioProducto' },
+        { association: 'usuarioComentario' }],
+      order: [[{ model: db.Producto, as: 'usuarioProducto' }, 'createdAt', 'DESC']]
     }
-    return res.render("profile", {perfil: resultados, condition: condition, usuarioProducto: resultados.usuarioProducto, usuarioComentario: resultados.usuarioComentario});
-  }).catch((err) => {
-      return console.log(err);
-  });   
+    db.Usuario.findByPk(idUsuario, filtro)
+      .then((resultados) => {
+        let condition = false;
+        if (req.session.user != undefined && req.session.user.idUsuario == resultados.idUsuario) {
+          condition = true;
+        }
+        return res.render("profile", { perfil: resultados, condition: condition, usuarioProducto: resultados.usuarioProducto, usuarioComentario: resultados.usuarioComentario });
+      }).catch((err) => {
+        return console.log(err);
+      });
   },
   editProfile: function (req, res, next) {
-    if(req.session.user != undefined){
+    if (req.session.user != undefined) {
       let id = req.session.user.id;
       db.Usuario.findByPk(id)
-      .then(function(resultados){
-        return res.render('profile-edit', {usuario: results});
-      })
-      .catch(function(error){
-        console.log(error);
-      });
-    }else{
+        .then(function (resultados) {
+          return res.render('profile-edit', { usuario: results });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
       return res.redirect("/users/login");
     }
   },
-  
-  store: function(req, res){
+
+  store: function (req, res) {
     let form = req.body;
     let errors = validationResult(req);
-    if(errors.isEmpty()){
+    if (errors.isEmpty()) {
       let usuarioCreado = {
         email: form.email,
         nombre: form.nombre,
         contrasenia: bcrypt.hashSync(form.contrasenia, 10),
         fechaNacimiento: form.fechaNacimiento,
         numeroDocumento: form.numeroDocumento,
-        foto: form.foto || "/images/users/default-image.png"
-    }
+        foto: form.foto // "/images/users/default-image.png"
+      }
 
-    db.Usuario.create(usuarioCreado)
-    .then((resultados) => {
-      return res.redirect("/")
-    }).catch((err) => {
-      return console.log(err);
-  }); 
-    }else{
-     
-      return res.render('register', {errors: errors.mapped(), old: req.body});
-              
+      db.Usuario.create(usuarioCreado)
+        .then((resultados) => {
+          return res.redirect("/users/login")
+        }).catch((err) => {
+          return console.log(err);
+        });
+    } else {
+
+      return res.render('register', { errors: errors.mapped(), old: req.body });
+
+    }
   }
-}
 };
 
 //exportar el modulo
