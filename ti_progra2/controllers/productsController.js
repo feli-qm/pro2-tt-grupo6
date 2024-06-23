@@ -35,7 +35,6 @@ const productsController = {
                 });
             })
             .catch((err) => {
-                console.log(err);
                 return res.status(500).send("Error al cargar el detalle del producto");
             });
     }, 
@@ -54,8 +53,7 @@ const productsController = {
             db.Producto.create(form)
                 .then((resultados) => {
                    return res.redirect("/products/" +resultados.id);
-                })
-                .catch((err) => {
+                }).catch((err) => {
                     return console.log(err);
                 });
         } else {

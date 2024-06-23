@@ -87,7 +87,7 @@ const usersController = {
       let id = req.session.user.id;
       db.Usuario.findByPk(id)
         .then(function (resultados) {
-          return res.render('profile-edit', { usuario: results });
+          return res.render('profile-edit', { usuario: resultados });
         })
         .catch(function (error) {
           console.log(error);
@@ -107,8 +107,12 @@ const usersController = {
         contrasenia: bcrypt.hashSync(form.contrasenia, 10),
         fechaNacimiento: form.fechaNacimiento,
         numeroDocumento: form.numeroDocumento,
-        foto: form.foto // "/images/users/default-image.png"
+        foto: form.foto
       }
+
+      //if(usuarioCreado.foto == ""){
+        //usuarioCreado.foto = "default-image.png"
+      //}
 
       db.Usuario.create(usuarioCreado)
         .then((resultados) => {

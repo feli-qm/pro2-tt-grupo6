@@ -32,7 +32,6 @@ router.post('/editProduct', productsController.edit)
 router.post("/")
 router.post('/add', validationsEditYAgregar, productsController.store)
 //router.post('/editProduct/:idProducto', productsController.edit)
-router.post('/add', productsController.store)
 router.post('/edit', validationsEditYAgregar, productsController.editForm);
 //router.post('/edit/:idProducto', validationsEditYAgregar, productsController.editForm);
 router.post('/delete', productsController.delete);
