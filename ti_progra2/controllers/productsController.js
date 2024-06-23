@@ -23,7 +23,7 @@ const productsController = {
         db.Producto.findByPk(idProducto, filtro)
             .then((resultados) => {
                 let condition = false;
-                if (req.session.usuario  != undefined && req.session.usuario.idProducto == resultados.idProducto) {
+                if (req.session.user  != undefined && req.session.user.idProducto == resultados.idProducto) {
                     condition = true;
                 }
                 return res.render("product-detalle", { 
@@ -40,7 +40,7 @@ const productsController = {
             });
     }, 
     add: function (req, res) {
-        if (req.session.usuario  != undefined) {
+        if (req.session.user  != undefined) {
             return res.render("product-add");
         }else{
             return res.redirect("/users/login");
@@ -90,8 +90,8 @@ const productsController = {
                 where: { 
                     id: form.id 
                 } };
-            if (req.session.usuario != undefined) {
-                let id = req.session.usuario.id;
+            if (req.session.user != undefined) {
+                let id = req.session.user.id;
                 if (form.idUsuario == id) {
                     db.Producto.update(form, filtro)
                         .then(() => {
@@ -134,8 +134,8 @@ const productsController = {
           }
         }
 
-        if (req.session.usuario != undefined) {
-            let id = req.session.usuario.id;
+        if (req.session.user != undefined) {
+            let id = req.session.user.id;
             if (form.idUsuario == id) {
                 db.Producto.destroy(filtro)
                 .then((resultados) => {
@@ -159,7 +159,7 @@ const productsController = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             let comentario = {
-                idUsuario: req.session.usuario.id, //chequear si es asi 
+                idUsuario: req.session.user.id, //chequear si es asi 
                 idPost: req.params.id, //chequear si se llama asi
                 comentario: form.comentario
             };
@@ -183,7 +183,7 @@ const productsController = {
             }
             db.Producto.findByPk(id, filtro)
             .then(function(resultados){
-                if (req.session.usuario != undefined && req.session.usuario.id == resultados.id){
+                if (req.session.user != undefined && req.session.user.id == resultados.id){
                     condition = true;
             }
             return res.render("product-detalle", {productoEncontrado: resultados, comentarios: resultados.productoComentario, codition: condition, errors: errors.mapped(), old: req.body})})

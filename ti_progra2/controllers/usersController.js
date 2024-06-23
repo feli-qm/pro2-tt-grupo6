@@ -7,7 +7,7 @@ const {validationResult} = require("express-validator")
 //crear el modulo en si
 const usersController = {
   loginGet: function (req, res) {
-    if (req.session.usuario != undefined){
+    if (req.session.user != undefined){
       return res.redirect('/')
     }
     else {
@@ -26,7 +26,7 @@ const usersController = {
 
      .then((resultados) => {
       if (resultados != null){
-        req.session.usuario = resultados;
+        req.session.user = resultados;
         if(form.recordarme != undefined){
           res.cookie("usuarioId", resultados.id, {maxAge: 1000 * 60 * 35})
         }
@@ -39,12 +39,12 @@ const usersController = {
       return console.log(err);
     }); 
   }else{
-    res.render('login', {errors: errors.mapped(), old: req.body, usuario: req.session.usuario});
+    res.render('login', {errors: errors.mapped(), old: req.body, usuario: req.session.user});
   }
      },
 
   register: function (req, res, next) {
-      if (req.session.usuario != undefined) {
+      if (req.session.user != undefined) {
           return res.redirect("/"); 
       } 
       else {
@@ -68,7 +68,7 @@ const usersController = {
   db.Usuario.findByPk(idUsuario, filtro)
   .then((resultados) => {
     let condition = false;
-    if (req.session.usuario != undefined && req.session.usuario.idUsuario == resultados.idUsuario){
+    if (req.session.user != undefined && req.session.user.idUsuario == resultados.idUsuario){
       condition = true;
     }
     return res.render("profile", {perfil: resultados, condition: condition, usuarioProducto: resultados.usuarioProducto, usuarioComentario: resultados.usuarioComentario});
@@ -77,8 +77,8 @@ const usersController = {
   });   
   },
   editProfile: function (req, res, next) {
-    if(req.session.usuario != undefined){
-      let id = req.session.usuario.id;
+    if(req.session.user != undefined){
+      let id = req.session.user.id;
       db.Usuario.findByPk(id)
       .then(function(resultados){
         return res.render('profile-edit', {usuario: results});

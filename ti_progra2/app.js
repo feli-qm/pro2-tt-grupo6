@@ -28,9 +28,9 @@ app.use(function(req,res,next){
 
   console.log('req.session:', req.session);
 
-  if (req.session.usuario != undefined) {
+  if (req.session.user != undefined) {
 
-    res.locals.user = req.session.usuario; 
+    res.locals.user = req.session.user; 
 
      console.log('Entre a locals');
       console.log(res.locals);
@@ -40,13 +40,13 @@ app.use(function(req,res,next){
 
 //cookies = recordar al usuario
 app.use(function(req, res, next) {
-  if (req.cookies.usuarioId != undefined && req.session.usuario == undefined) {
+  if (req.cookies.usuarioId != undefined && req.session.user == undefined) {
       let id = req.cookies.usuarioId;
 
       db.Usuario.findByPk(id)
       .then(function(resultados) {
 
-        req.session.usuario = resultados;
+        req.session.user = resultados;
         res.locals.user = resultados;
 
         return next(); 
