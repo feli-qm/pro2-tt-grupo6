@@ -60,7 +60,7 @@ let validationsLogin = [
                             throw new Error("La contraseña no es correcta")
                         }
                     } else {
-                        throw new Error("No existe el email, por favor registrese")
+                        throw new Error("La contraseña no es correcta, ingrésela nuevamente")
                     }
                 })
         })
