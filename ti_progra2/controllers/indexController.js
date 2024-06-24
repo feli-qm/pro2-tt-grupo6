@@ -25,7 +25,7 @@ const indexController = {
         let filtro = {
             where: {
                 [op.or]: [
-                    { nombreProducto: { [op.like]: "%" + search + "%" } }, 
+                    { nombreProducto: { [op.like]: "%" + search + "%" } },
                     { descProducto: { [op.like]: "%" + search + "%" } }
                 ]
             },

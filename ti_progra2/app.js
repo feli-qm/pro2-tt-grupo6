@@ -20,39 +20,41 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //session
-app.use(session({ secret: "Mensaje secreto",
-                  resave: false,
-                  saveUninitialized: true}));
+app.use(session({
+  secret: "Mensaje secreto",
+  resave: false,
+  saveUninitialized: true
+}));
 
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
 
 
 
   if (req.session.user != undefined) {
 
-    res.locals.user = req.session.user; 
+    res.locals.user = req.session.user;
 
   }
   return next()
 });
 
 //cookies = recordar al usuario
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   if (req.cookies.usuarioId != undefined && req.session.user == undefined) {
-      let id = req.cookies.usuarioId;
+    let id = req.cookies.usuarioId;
 
-      db.Usuario.findByPk(id)
-      .then(function(resultados) {
+    db.Usuario.findByPk(id)
+      .then(function (resultados) {
 
         req.session.user = resultados;
         res.locals.user = resultados;
 
-        return next(); 
+        return next();
       })
-      .catch(function(err) {
-        return console.log(err); ; 
+      .catch(function (err) {
+        return console.log(err);;
       });
-  } 
+  }
   else {
     return next()
   }
@@ -61,7 +63,7 @@ app.use(function(req, res, next) {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products'); 
+var productsRouter = require('./routes/products');
 
 //prefijos del sistema de ruteo//
 app.use('/', indexRouter);

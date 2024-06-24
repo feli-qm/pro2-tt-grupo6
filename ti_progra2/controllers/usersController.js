@@ -39,7 +39,8 @@ const usersController = {
 
       return res.render('register', { errors: errors.mapped(), old: req.body });
 
-    }},
+    }
+  },
   loginGet: function (req, res) {
     if (req.session.user != undefined) {
       return res.redirect('/')
@@ -101,11 +102,12 @@ const usersController = {
         if (req.session.user != undefined && req.session.user.id == resultados.idUsuario) {
           condition = true;
         }
-        return res.render("profile", { 
-          perfil: resultados, 
-          condition: condition, 
-          usuarioProducto: resultados.usuarioProducto, 
-          usuarioComentario: resultados.usuarioComentario });
+        return res.render("profile", {
+          perfil: resultados,
+          condition: condition,
+          usuarioProducto: resultados.usuarioProducto,
+          usuarioComentario: resultados.usuarioComentario
+        });
       }).catch((err) => {
         return console.log(err);
       });

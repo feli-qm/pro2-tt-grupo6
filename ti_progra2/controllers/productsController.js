@@ -49,7 +49,7 @@ const productsController = {
     store: function (req, res) {
         let form = req.body;
         let errors = validationResult(req);
-        
+
         if (errors.isEmpty()) {
             db.Producto.create(form)
                 .then((resultados) => {
@@ -134,7 +134,8 @@ const productsController = {
         let filtro = {
             where: {
                 id: form.id
-            } };
+            }
+        };
 
         if (req.session.user) {
             let idUsuario = req.session.user.id;

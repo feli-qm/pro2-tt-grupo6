@@ -1,4 +1,4 @@
-module.exports = function(sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) {
     let alias = "Producto";
     let cols = {
         id: {
@@ -36,7 +36,7 @@ module.exports = function(sequelize, dataTypes) {
 
     let Producto = sequelize.define(alias, cols, config);
 
-    Producto.associate = function(models) {
+    Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
             as: "productoUsuario", // alias de relación con el modelo
             foreignKey: "idUsuario"
