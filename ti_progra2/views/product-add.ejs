@@ -3,49 +3,60 @@
 <%- include("./partials/head") %>
 
 	<body>
-		<% if (locals.user != undefined){%>
+		<% if (locals.user !=undefined){%>
 			<%- include("./partials/headerLogueado")%>
-		<% } else { %>
-			<%- include("./partials/header") %>
-		<% } %>
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Agregar productos</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-						<form action="/products/add" method="POST">
-							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
+				<% } else { %>
+					<%- include("./partials/header") %>
+						<% } %>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Agregar productos</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<h2 class="col-12">
+										<form action="/products/add" method="POST">
+											<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
 
-							<input type="hidden" name="idUsuario" value="<%= locals.user.id %>">
+											<input type="hidden" name="idUsuario" value="<%= locals.user.id %>">
 
-							<label for="foto">Imagen:</label>
-							<input type="text" id="foto" name="foto" required value="<%= locals.old !== undefined && old.foto ? old.foto: ""%>"><br><br>
+											<label for="foto">Imagen:</label>
+											<input type="text" id="foto" name="foto" required
+												value="<%= locals.old !== undefined && old.foto ? old.foto: ""%>"><br><br>
 
-							<% if (locals.errrors && errors.foto) {%>
-								<p><% errors.foto.msg %></p>
-								<% } %>
+											<% if (locals.errrors && errors.foto) {%>
+												<p>
+													<% errors.foto.msg %>
+												</p>
+												<% } %>
 
-							<label for="nombreProducto">Nombre del producto:</label>
-							<input type="text" id="nombreProducto" name="nombreProducto" required value="<%= locals.old !== undefined && old.nombreProducto ? old.nombreProducto: ""%>"><br><br>
+													<label for="nombreProducto">Nombre del producto:</label>
+													<input type="text" id="nombreProducto" name="nombreProducto"
+														required
+														value="<%= locals.old !== undefined && old.nombreProducto ? old.nombreProducto: ""%>"><br><br>
 
-							<% if (locals.errrors && errors.nombreProducto) {%>
-								<p><% errors.nombreProducto.msg %></p>
-								<% } %>
+													<% if (locals.errrors && errors.nombreProducto) {%>
+														<p>
+															<% errors.nombreProducto.msg %>
+														</p>
+														<% } %>
 
-							<label for="descProducto">Descripción:</label>
-							<input type="text" id="descProducto" name="descProducto" required value="<%= locals.old !== undefined && old.descProducto ? old.descProducto: ""%>"><br><br>
+															<label for="descProducto">Descripción:</label>
+															<input type="text" id="descProducto" name="descProducto"
+																required
+																value="<%= locals.old !== undefined && old.descProducto ? old.descProducto: ""%>"><br><br>
 
-							<% if (locals.errrors && errors.descProducto) {%>
-								<p><% errors.descProducto.msg %></p>
-								<% } %>
+															<% if (locals.errrors && errors.descProducto) {%>
+																<p>
+																	<% errors.descProducto.msg %>
+																</p>
+																<% } %>
 
-							<button type="submit">Enviar</button>
-						</form>
-					</h2>
-					<%- include("./partials/footer") %>
+																	<button type="submit">Enviar</button>
+										</form>
+									</h2>
+									<%- include("./partials/footer") %>
 	</body>
 
 </html>
