@@ -1,6 +1,5 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
-const op= db.Sequelize.Op; //chequear que lo estemos usando sino borrarlo
 const {validationResult} = require("express-validator")
 
 
@@ -11,7 +10,8 @@ const productsController = {
         const filtro = {
             include: [{
                 association: 'productoComentario', 
-                include: [{ association: 'comentarioUsuario' }]
+                include: [{ association: 'comentarioUsuario' }],
+                order: [['createdAt', 'DESC']]
             }, {
                 association: 'productoUsuario'
             }],
@@ -31,11 +31,12 @@ const productsController = {
                     condition: condition,
                     comentarioUsuario: resultados.comentarioUsuario,
                     productoComentario: resultados.productoComentario,
-                    productoUsuario: resultados.productoUsuario
+                    productoUsuario: resultados.productoUsuario,
+                    user: req.session.user
                 });
             })
             .catch((err) => {
-                return res.status(500).send("Error al cargar el detalle del producto");
+                return res.send("Error al cargar el detalle del producto");
             });
     }, 
     add: function (req, res) {

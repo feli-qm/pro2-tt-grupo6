@@ -6,11 +6,11 @@ const op= db.Sequelize.Op;
 const indexController = {
     index: function (req, res) {
         let filtro = {
-            order: [['createdAt', 'DESC']],
             include: [
                 { association: "productoUsuario" },
                 { association: "productoComentario" }
-            ]
+            ],
+            order: [['createdAt', 'DESC']]
         }
         db.Producto.findAll(filtro)
             .then((resultados) => {

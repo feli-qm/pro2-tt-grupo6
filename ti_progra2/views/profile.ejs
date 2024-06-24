@@ -19,10 +19,12 @@
 										<div class="d-flex align-items-center ">
 											<h1 class="main-title">
 												<%= perfil.nombre%>
-													<% if (condition) {%>
+												<% if (locals.user) { %>
+													<% if (locals.user.id === perfil.id) { %>
 														<a href="/users/edit">
 															<i class="fas fa-cog"></i>
 														</a>
+														<%} %>
 														<%} %>
 											</h1>
 											<a class="btn mt-3 ml-4" href="">SEGUIR</a>

@@ -6,6 +6,39 @@ const { validationResult } = require("express-validator")
 
 //crear el modulo en si
 const usersController = {
+  
+  register: function (req, res, next) {
+    if (req.session.user != undefined) {
+      return res.redirect("/");
+    }
+    else {
+      return res.render('register')
+    };
+  },
+  store: function (req, res) {
+    let form = req.body;
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      let usuarioCreado = {
+        email: form.email,
+        nombre: form.nombre,
+        contrasenia: bcrypt.hashSync(form.contrasenia, 10),
+        fechaNacimiento: form.fechaNacimiento,
+        numeroDocumento: form.numeroDocumento,
+        foto: "/images/users/"+ form.foto
+      }
+      db.Usuario.create(usuarioCreado)
+        .then((resultados) => {
+          return res.redirect("/users/login")
+        }).catch((err) => {
+          return console.log(err);
+        });
+    } else {
+
+      return res.render('register', { errors: errors.mapped(), old: req.body });
+
+    }
+  },
   loginGet: function (req, res) {
     if (req.session.user != undefined) {
       return res.redirect('/')
@@ -48,16 +81,6 @@ const usersController = {
       res.render('login', { errors: errors.mapped(), old: req.body, usuario: req.session.user });
     }
   },
-
-  register: function (req, res, next) {
-    if (req.session.user != undefined) {
-      return res.redirect("/");
-    }
-    else {
-      return res.render('register')
-    };
-
-  },
   logout: function (req, res, next) {
     req.session.destroy()
     res.clearCookie("usuarioId")
@@ -94,36 +117,6 @@ const usersController = {
         });
     } else {
       return res.redirect("/users/login");
-    }
-  },
-
-  store: function (req, res) {
-    let form = req.body;
-    let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      let usuarioCreado = {
-        email: form.email,
-        nombre: form.nombre,
-        contrasenia: bcrypt.hashSync(form.contrasenia, 10),
-        fechaNacimiento: form.fechaNacimiento,
-        numeroDocumento: form.numeroDocumento,
-        foto: form.foto
-      }
-
-      //if(usuarioCreado.foto == ""){
-        //usuarioCreado.foto = "default-image.png"
-      //}
-
-      db.Usuario.create(usuarioCreado)
-        .then((resultados) => {
-          return res.redirect("/users/login")
-        }).catch((err) => {
-          return console.log(err);
-        });
-    } else {
-
-      return res.render('register', { errors: errors.mapped(), old: req.body });
-
     }
   }
 };

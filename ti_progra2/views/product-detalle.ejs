@@ -15,7 +15,9 @@
 										<%=productoEncontrado.nombreProducto%>
 									</h2>
 									<p class="product-detail-description">
-										<% if (condition) { %>
+										<% if (locals.user) { %>
+											<% if (locals.user.id === productoEncontrado.id) { %>
+												
 											<div class="actions">
 												<form action="/products/editProduct" method="post">
 													<input type="hidden" name="id" value="<%= productoEncontrado.id %>" >
@@ -31,13 +33,14 @@
 													</div>
 									</p>
 									<% } %>
-										<% if (!condition) { %>
+									<% } %>
+
 											<p class="usuario-producto">Producto cargado por <a
 													class="usuario-producto2"
 													href="/users/profile/<%= productoUsuario.id %>">
 													<%= productoUsuario.nombre%>
 												</a></p>
-											<% } %>
+											
 								</div>
 								<div class="product-detail">
 									<div class="row">
