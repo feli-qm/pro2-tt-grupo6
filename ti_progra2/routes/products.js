@@ -11,8 +11,7 @@ let validationsEditYAgregar = [
     body('descProducto')
         .notEmpty().withMessage('El campo Descripción es obligatorio.'),
     body('foto')
-        .notEmpty().withMessage('El campo Imagen es obligatorio.').bail()
-        .isURL().withMessage('El campo Imagen debe ser una URL válida.')  
+        .notEmpty().withMessage('El campo Imagen es obligatorio.')
 ]
 
 let validationComentario = [
@@ -23,19 +22,16 @@ let validationComentario = [
 
 //crear rutas con sus sufijos//
 /* GET products listing. */
-router.get('/:idProducto', productsController.detail);
 router.get('/add', productsController.add); 
 router.post('/editProduct', productsController.edit)
-//router.get('/delete', productsController.delete);
 
 //POST capturar la info del formulario//
 router.post("/")
 router.post('/add', validationsEditYAgregar, productsController.store)
-//router.post('/editProduct/:idProducto', productsController.edit)
 router.post('/edit', validationsEditYAgregar, productsController.editForm);
-//router.post('/edit/:idProducto', validationsEditYAgregar, productsController.editForm);
 router.post('/delete', productsController.delete);
 router.post('/:idProducto', validationComentario, productsController.comment); 
+router.get('/:idProducto', productsController.detail);
 
 //exportar ruteador//
 module.exports = router;

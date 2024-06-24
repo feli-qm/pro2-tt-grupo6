@@ -3,52 +3,65 @@
 <%- include("./partials/head") %>
 
 	<body>
-		<% if (locals.user != undefined){%>
+		<% if (locals.user !=undefined){%>
 			<%- include('./partials/headerLogueado')%>
-		<% } else { %>
-			<%- include('./partials/header') %>
-		<% } %>
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Registrate</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-						<form action="/users/register" method="post">
-							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
-							<label for="email">Email:</label>
-							<input type="email" id="email" name="email" value="<%= locals.old !== undefined && old.email ? old.email : "" %>"><br><br>
-							<% if (locals.errors && errors.email) { %>
-								<p class="feedback"><%= errors.email.msg %></p>
-								<% } %>
+				<% } else { %>
+					<%- include('./partials/header') %>
+						<% } %>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Registrate</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<h2 class="col-12">
+										<form action="/users/register" method="post">
+											<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
+											<label for="email">Email:</label>
+											<input type="email" id="email" name="email"
+												value="<%= locals.old !== undefined && old.email ? old.email : "" %>"><br><br>
+											<% if (locals.errors && errors.email) { %>
+												<p class="feedback">
+													<%= errors.email.msg %>
+												</p>
+												<% } %>
 
-							<label for="nombre">Usuario:</label>
-							<input type="text" id="nombre" name="nombre" value="<%= locals.old !== undefined && old.nombre ? old.nombre : "" %>"><br><br>
-							<% if (locals.errors && errors.usuario) { %>
-								<p class="feedback"><%= errors.usuario.msg %></p>
-								<% } %>
-								
-							<label for="contrasenia">Contraseña:</label>
-							<input type="password" id="contrasenia" name="contrasenia" ><br><br>
-							<% if (locals.errors && errors.contrasenia) { %>
-								<p class="feedback"><%= errors.contrasenia.msg %></p>
-								<% } %>
+													<label for="nombre">Usuario:</label>
+													<input type="text" id="nombre" name="nombre"
+														value="<%= locals.old !== undefined && old.nombre ? old.nombre : "" %>"><br><br>
+													<% if (locals.errors && errors.usuario) { %>
+														<p class="feedback">
+															<%= errors.usuario.msg %>
+														</p>
+														<% } %>
 
-							<label for="fechaNacimiento">Fecha de Nacimiento:</label>
-							<input type="date" id="fechaNacimiento" name="fechaNacimiento" ><br><br>
+															<label for="contrasenia">Contraseña:</label>
+															<input type="password" id="contrasenia"
+																name="contrasenia"><br><br>
+															<% if (locals.errors && errors.contrasenia) { %>
+																<p class="feedback">
+																	<%= errors.contrasenia.msg %>
+																</p>
+																<% } %>
 
-							<label for="numeroDocumento">Número de Documento:</label>
-							<input type="number" id="numeroDocumento" name="numeroDocumento" ><br><br>
+																	<label for="fechaNacimiento">Fecha de
+																		Nacimiento:</label>
+																	<input type="date" id="fechaNacimiento"
+																		name="fechaNacimiento"><br><br>
 
-							<label for="foto">Foto de Perfil:</label>
-							<input type="text" id="foto" name="foto"><br><br>
+																	<label for="numeroDocumento">Número de
+																		Documento:</label>
+																	<input type="number" id="numeroDocumento"
+																		name="numeroDocumento"><br><br>
 
-							<button type="submit">Enviar</button>
-						</form>
-					</h2>
-					<%- include("./partials/footer") %>
+																	<label for="foto">Foto de Perfil:</label>
+																	<input type="text" id="foto" name="foto"><br><br>
+
+																	<button type="submit">Enviar</button>
+										</form>
+									</h2>
+									<%- include("./partials/footer") %>
 	</body>
 
 </html>

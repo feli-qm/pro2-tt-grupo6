@@ -1,12 +1,10 @@
 //importar info que voy a usar en este modulo
 const db = require('../database/models');
 const bcrypt = require("bcryptjs");
-const op = db.Sequelize.Op; //chequear que lo estemos usando sino borrarlo
 const { validationResult } = require("express-validator")
 
 //crear el modulo en si
 const usersController = {
-  
   register: function (req, res, next) {
     if (req.session.user != undefined) {
       return res.redirect("/");
@@ -59,9 +57,9 @@ const usersController = {
         .then((resultados) => {
 
           if (resultados != null) {
-            
+
             let check = bcrypt.compareSync(form.contrasenia, resultados.contrasenia);
-            
+
             if (check) {
               req.session.user = resultados;
               if (form.recordarme != undefined) {
@@ -71,12 +69,12 @@ const usersController = {
             } else {
               return res.send("Error en la contrasenia");
             }
-          }else{
+          } else {
             return res.send("No hay mail parecidos a: " + form.email);
           }
         }).catch((err) => {
-            return console.log(err);
-          });
+          return console.log(err);
+        });
     } else {
       res.render('login', { errors: errors.mapped(), old: req.body, usuario: req.session.user });
     }
@@ -97,10 +95,14 @@ const usersController = {
     db.Usuario.findByPk(idUsuario, filtro)
       .then((resultados) => {
         let condition = false;
-        if (req.session.user != undefined && req.session.user.idUsuario == resultados.idUsuario) {
+        if (req.session.user != undefined && req.session.user.id == resultados.idUsuario) {
           condition = true;
         }
-        return res.render("profile", { perfil: resultados, condition: condition, usuarioProducto: resultados.usuarioProducto, usuarioComentario: resultados.usuarioComentario });
+        return res.render("profile", { 
+          perfil: resultados, 
+          condition: condition, 
+          usuarioProducto: resultados.usuarioProducto, 
+          usuarioComentario: resultados.usuarioComentario });
       }).catch((err) => {
         return console.log(err);
       });

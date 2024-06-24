@@ -3,46 +3,55 @@
 <%- include("./partials/head") %>
 
 	<body>
-		<% if (locals.user != undefined){%>
+		<% if (locals.user !=undefined){%>
 			<%- include('./partials/headerLogueado')%>
-		<% } else { %>
-			<%- include('./partials/header') %>
-		<% } %>
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Editar productos</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-						<form action="/products/edit" method="post">
-							<input type="hidden" name="id" value="<%= productoEncontrado.id %>">
-							<input type="hidden" name="idUsuario" value="<%= productoUsuario.id  %>">
+				<% } else { %>
+					<%- include('./partials/header') %>
+						<% } %>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Editar productos</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<h2 class="col-12">
+										<form action="/products/edit" method="post">
+											<input type="hidden" name="id" value="<%= productoEncontrado.id %>">
+											<input type="hidden" name="idUsuario" value="<%= productoUsuario.id  %>">
 
-							<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
-							<label for="foto">Imagen:</label>
-							<input type="text" id="foto" name="foto" value="<%= (locals.old && locals.old.foto !== undefined) ? locals.old.foto : (productoEncontrado && productoEncontrado.foto) %>"><br><br>
-							<% if (locals.errors && errors.foto) { %>
-								<p class="feedback"><%= errors.foto.msg %></p>
-							<% } %>
+											<!-- Ingresamos la ruta para que no se rompa al enviar el form -->
+											<label for="foto">Imagen:</label>
+											<input type="text" id="foto" name="foto"
+												value="<%= (locals.old && locals.old.foto !== undefined) ? locals.old.foto : (productoEncontrado && productoEncontrado.foto) %>"><br><br>
+											<% if (locals.errors && errors.foto) { %>
+												<p class="feedback">
+													<%= errors.foto.msg %>
+												</p>
+												<% } %>
 
-							<label for="nombreProducto">Nombre del producto:</label>
-							<input type="text" id="nombreProducto" name="nombreProducto" value="<%= (locals.old && locals.old.nombreProducto !== undefined) ? locals.old.nombreProducto : (productoEncontrado && productoEncontrado.nombreProducto) %>"><br><br>
-							<% if (locals.errors && errors.nombreProducto) { %>
-								<p class="feedback"><%= errors.nombreProducto.msg %></p>
-							<% } %>
+													<label for="nombreProducto">Nombre del producto:</label>
+													<input type="text" id="nombreProducto" name="nombreProducto"
+														value="<%= (locals.old && locals.old.nombreProducto !== undefined) ? locals.old.nombreProducto : (productoEncontrado && productoEncontrado.nombreProducto) %>"><br><br>
+													<% if (locals.errors && errors.nombreProducto) { %>
+														<p class="feedback">
+															<%= errors.nombreProducto.msg %>
+														</p>
+														<% } %>
 
-							<label for="descProducto">Descripción:</label>
-							<input type="text" id="descProducto" name="descProducto" value="<%= (locals.old && locals.old.descProducto !== undefined) ? locals.old.descProducto : (productoEncontrado && productoEncontrado.descProducto) %>"><br><br>
-							<% if (locals.errors && errors.descProducto) { %>
-								<p class="feedback"><%= errors.descProducto.msg %></p>
-							<% } %>
+															<label for="descProducto">Descripción:</label>
+															<input type="text" id="descProducto" name="descProducto"
+																value="<%= (locals.old && locals.old.descProducto !== undefined) ? locals.old.descProducto : (productoEncontrado && productoEncontrado.descProducto) %>"><br><br>
+															<% if (locals.errors && errors.descProducto) { %>
+																<p class="feedback">
+																	<%= errors.descProducto.msg %>
+																</p>
+																<% } %>
 
-							<button type="submit">Enviar</button>
-						</form>
-					</h2>
-					<%- include("./partials/footer") %>
+																	<button type="submit">Enviar</button>
+										</form>
+									</h2>
+									<%- include("./partials/footer") %>
 	</body>
 
 </html>

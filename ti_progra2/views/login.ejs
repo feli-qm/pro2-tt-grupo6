@@ -3,42 +3,45 @@
 <%- include("./partials/head") %>
 
 	<body>
-		<% if (locals.user != undefined){%>
+		<% if (locals.user !=undefined){%>
 			<%- include('./partials/headerLogueado')%>
-		<% } else { %>
-			<%- include('./partials/header') %>
-		<% } %>
+				<% } else { %>
+					<%- include('./partials/header') %>
+						<% } %>
 
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Ingresar</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-						<form action="/users/login" method="POST">
-							<label for="nombre">Usuario (Email):</label>
-							<input type="email" id="nombre" name="email" value="<%= locals.old !== undefined && old.email ? old.email: "" %>"><br><br>
-							<% if (locals.errors && errors.email) { %>
-								<p class="feedback"><%= errors.email.msg %></p>
-								<% } %>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Ingresar</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<h2 class="col-12">
+										<form action="/users/login" method="POST">
+											<label for="nombre">Usuario (Email):</label>
+											<input type="email" id="nombre" name="email"
+												value="<%= locals.old !== undefined && old.email ? old.email: "" %>"><br><br>
+											<% if (locals.errors && errors.email) { %>
+												<p class="feedback">
+													<%= errors.email.msg %>
+												</p>
+												<% } %>
+													<label for="contrasenia">Contraseña:</label>
+													<input type="password" id="contrasenia" name="contrasenia"
+														value=""><br><br>
+													<% if (locals.errors && errors.contrasenia) { %>
+														<p class="feedback">
+															<%= errors.contrasenia.msg %>
+														</p>
+														<% } %>
+															<label for="recordarme">Recordarme</label><br><br>
+															<input type="checkbox" id="recordarme" name="recordarme">
 
-							<label for="contrasenia">Contraseña:</label>
-							<input type="password" id="contrasenia" name="contrasenia" value="<%= locals.old !== undefined && old.contrasenia ? old.contrasenia: "" %>"><br><br>
-							<% if (locals.errors && errors.contrasenia) { %>
-								<p class="feedback"><%= errors.contrasenia.msg %></p>
-								<% } %>
+															<button type="submit">Iniciar Sesión</button>
+										</form>
+									</h2>
 
-
-							<label for="recordarme">Recordarme</label><br><br>
-							<input type="checkbox" id="recordarme" name="recordarme">
-
-							<button type="submit">Iniciar Sesión</button>
-						</form>
-					</h2>
-
-					<%- include("./partials/footer") %>
+									<%- include("./partials/footer") %>
 
 	</body>
 

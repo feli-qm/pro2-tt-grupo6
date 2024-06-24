@@ -26,14 +26,12 @@ app.use(session({ secret: "Mensaje secreto",
 
 app.use(function(req,res,next){
 
-  console.log('req.session:', req.session);
+
 
   if (req.session.user != undefined) {
 
     res.locals.user = req.session.user; 
 
-     console.log('Entre a locals');
-      console.log(res.locals);
   }
   return next()
 });

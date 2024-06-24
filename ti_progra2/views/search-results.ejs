@@ -2,48 +2,56 @@
 <html lang="es">
 <%- include("./partials/head") %>
 
-<body>
-    <% if (locals.user != undefined){%>
-        <%- include('./partials/headerLogueado')%>
-    <% } else { %>
-        <%- include('./partials/header') %>
-    <% } %>
-    <div class="container products-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="products-title">Resultados de búsqueda: " <%= search %> "</h2>
-            </div>
-            <% if (error) { %>
-                <p class="avisos"><%= error %></p>
-            <% } %>
+    <body>
+        <% if (locals.user !=undefined){%>
+            <%- include('./partials/headerLogueado')%>
+                <% } else { %>
+                    <%- include('./partials/header') %>
+                        <% } %>
+                            <div class="container products-wrapper">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 class="products-title">Resultados de búsqueda: " <%= search %> "</h2>
+                                    </div>
+                                    <% if (error) { %>
+                                        <p class="avisos">
+                                            <%= error %>
+                                        </p>
+                                        <% } %>
 
-            <% for (let i = 0; i < productos.length; i++){ %>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/products/<%= productos[i].id %>">
-                        <figure class="product-box_image">
-                            <img src="/images/products/<%= productos[i].foto %>" alt="">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2>
-                                <%= productos[i].nombreProducto %>
-                            </h2>
-                            <p>
-                                <%= productos[i].descProducto %>
-                            </p> 
-                             <p>Comentarios: <%= productos[i].productoComentario.length %> </p> 
-        
-                            <p>Cargado por: <a href="/users/profile/<%= productos[i].productoUsuario.id %>"><%= productos[i].productoUsuario.nombre %></a></p>
-                        </article> 
+                                            <% for (let i=0; i < productos.length; i++){ %>
+                                                <div class="col-12 col-sm-6 col-lg-3">
+                                                    <section class="product-box">
+                                                        <a href="/products/<%= productos[i].id %>">
+                                                            <figure class="product-box_image">
+                                                                <img src="/images/products/<%= productos[i].foto %>"
+                                                                    alt="">
+                                                            </figure>
+                                                            <article class="product-box_data">
+                                                                <h2>
+                                                                    <%= productos[i].nombreProducto %>
+                                                                </h2>
+                                                                <p>
+                                                                    <%= productos[i].descProducto %>
+                                                                </p>
+                                                                <p>Comentarios: <%=
+                                                                        productos[i].productoComentario.length %>
+                                                                </p>
 
-                    </a>
-                </section>
-            </div>
-            <% }; %>
-          
-        </div>
-    </div>
-    <%- include("./partials/footer") %>
-</body>
+                                                                <p>Cargado por: <a
+                                                                        href="/users/profile/<%= productos[i].productoUsuario.id %>">
+                                                                        <%= productos[i].productoUsuario.nombre %>
+                                                                    </a></p>
+                                                            </article>
+
+                                                        </a>
+                                                    </section>
+                                                </div>
+                                                <% }; %>
+
+                                </div>
+                            </div>
+                            <%- include("./partials/footer") %>
+    </body>
 
 </html>
