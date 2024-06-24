@@ -123,6 +123,34 @@ const usersController = {
     } else {
       return res.redirect("/users/login");
     }
+  },
+
+  editFormProfile: function (req, res) {
+    let form = req.body;
+    let errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      let filtro = {
+        where: {
+          id: form.id
+        }
+      };
+      if (req.session.user != undefined) {
+        let id = req.session.user.id;
+        if (form.id == id) {
+          db.Usuario.update(form, filtro)
+            .then(() => {
+              return res.redirect("/users/profile/" + form.id);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+
+          return res.redirect("/users/profile/" + id);
+        }
+      }
+    }
   }
 };
 

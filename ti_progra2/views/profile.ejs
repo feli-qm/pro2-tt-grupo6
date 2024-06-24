@@ -10,22 +10,24 @@
 						<% } %>
 						<!-- Datos del usuario -->
 						<section class="info-usuario container products-wrapper">
-							<div class="container products-wrapper"></div>
 							<div class="row">
 								<div class="img-container offset-3 col-2">
-									<img src="<%= perfil.foto%>" alt="foto de perfil" class="foto-perfil">
+									<% if (locals.user && locals.user.id===perfil.id) { %>
+										<img src="/images/users/<%= perfil.foto %>" alt="foto de perfil"
+											class="foto-perfil">
+										<% } else { %>
+											<img src="<%= perfil.foto %>" alt="foto de perfil" class="foto-perfil">
+											<% } %>
 								</div>
 								<div class="data-container col-6">
-									<div class="d-flex align-items-center ">
+									<div class="d-flex align-items-center">
 										<h1 class="main-title">
-											<%= perfil.nombre%>
-											<% if (locals.user) { %>
-												<% if (locals.user.id === perfil.id) { %>
+											<%= perfil.nombre %>
+												<% if (locals.user && locals.user.id===perfil.id) { %>
 													<a href="/users/edit">
 														<i class="fas fa-cog"></i>
 													</a>
-													<%} %>
-													<%} %>
+													<% } %>
 											</h1>
 											<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 										</div>

@@ -89,7 +89,7 @@ router.get('/edit', usersController.editProfile);
 router.post('/login', validationsLogin, usersController.loginPost);
 router.post('/register', validationsRegister, usersController.store);
 router.post('/logout', usersController.logout);
-router.post('/edit', valdiationsEdit, usersController.editProfile)
+router.post('/edit', valdiationsEdit, usersController.editFormProfile)
 
 //exportar ruteador//
 module.exports = router;
