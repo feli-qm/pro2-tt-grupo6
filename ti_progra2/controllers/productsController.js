@@ -169,12 +169,12 @@ const productsController = {
 
         let form = req.body;
         let errors = validationResult(req);
-       
+        console.log("errors:", errors)
 
         if (errors.isEmpty()) {
             let comentario = {
                 idUsuario: req.session.user.id,
-                idPost: req.params.id,
+                idPost: req.params.idProducto,
                 comentario: form.comentario
             };
             db.Comentario.create(comentario)
@@ -186,11 +186,11 @@ const productsController = {
                 });
         } else {
             let id = req.params.idProducto;
-            
+            console.log("id:", id)
             let condition = false;
             let filtro = {
                 include: [
-                    { association: "usuarioComentario" },
+                    { association: "productoUsuario" },
                     {
                         association: "productoComentario",
                         include: [{ association: "comentarioUsuario" }

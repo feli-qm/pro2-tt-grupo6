@@ -16,6 +16,10 @@ const usersController = {
   store: function (req, res) {
     let form = req.body;
     let errors = validationResult(req);
+    let foto = "default-image.png";
+    if (form.foto != "") {
+      foto = form.foto;
+    }
     if (errors.isEmpty()) {
       let usuarioCreado = {
         email: form.email,
@@ -23,7 +27,7 @@ const usersController = {
         contrasenia: bcrypt.hashSync(form.contrasenia, 10),
         fechaNacimiento: form.fechaNacimiento,
         numeroDocumento: form.numeroDocumento,
-        foto: "/images/users/"+ form.foto
+        foto: foto
       }
       db.Usuario.create(usuarioCreado)
         .then((resultados) => {
@@ -35,8 +39,7 @@ const usersController = {
 
       return res.render('register', { errors: errors.mapped(), old: req.body });
 
-    }
-  },
+    }},
   loginGet: function (req, res) {
     if (req.session.user != undefined) {
       return res.redirect('/')

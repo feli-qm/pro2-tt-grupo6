@@ -47,49 +47,60 @@
 
 								</div>
 								<div class="product-detail">
-									<div class="row">
-										<article class="col-12 col-lg-8 product-detail-info">
-											<img src="/images/products/<%= productoEncontrado.foto%>" alt=""
-												class="product-detail-img">
-											<p class="product-detail-description">
-												<%= productoEncontrado.descProducto %>
-											</p>
-										</article>
-										<% for (let i=0; i < productoComentario.length; i++){%>
-											<article>
-												<img src="<%= productoComentario[i].comentarioUsuario.foto%>"
-													alt="Foto de usuario">
-												<div class="data">
-													<p class="user">
-														<strong> <a
-																href="/users/profile/<%=productoComentario[i].comentarioUsuario.id%>">
-																<%= productoComentario[i].comentarioUsuario.nombre
-																	%>
-															</a> </strong>
-														<%=productoEncontrado.productoComentario[i].comentario%>
-													</p>
-												</div>
-											</article>
-											<%}%>
-									</section>
-									<% if (locals.user != undefined){ %>
-										<form class="form" action= "/products/<%= productoEncontrado.id %>" method="post">
-											<input name="comentario" class="form-input" type="text" value=""
-												placeholder="Agregar comentario">
-											<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-											</form>
-									<% } else {%> 
-										<a class="buy-now-button" href ="/users/login">Debes estar logueado para comentar!</a>
-									<% } %> 
-										<hr>
+									<div class="col-12 col-lg-4">
+										<section class="comments">
+											<section class="comments">
+												<% for (let i=0; i < productoComentario.length; i++) { %>
+													<article>
+														<% if (locals.user &&
+															locals.user.id===productoComentario[i].comentarioUsuario.id)
+															{ %>
+															<img src="/images/users/<%= productoComentario[i].comentarioUsuario.foto %>"
+																alt="Foto de usuario">
+															<% } else { %>
+																<img src="<%= productoComentario[i].comentarioUsuario.foto %>"
+																	alt="Foto de usuario">
+																<% } %>
+													</article>
+													<div class="data">
+														<p class="user">
+															<strong>
+																<a
+																	href="/users/profile/<%= productoComentario[i].comentarioUsuario.id %>">
+																	<%= productoComentario[i].comentarioUsuario.nombre
+																		%>
+																</a>
+															</strong>
+															<%= productoComentario[i].comentario %>
+														</p>
+													</div>
+													<% } %>
+											</section>
+											<% if (locals.user !=undefined){ %>
+												<form class="form" action="/products/<%= productoEncontrado.id %>"
+													method="post">
+													<input name="comentario" class="form-input" type="text" value=""
+														placeholder="Agregar comentario">
+													<button type="submit" class="buy-now-button">AGREGAR
+														COMENTARIO</button>
+												</form>
+												<% if (locals.errors && locals.errors.comentario) { %>
+													<p class="feedback">
+														<%= locals.errors.comentario.msg %>
+													</p><br>
+													<% } %>
+														<% } else {%>
+															<a class="buy-now-button" href="/users/login">Debes
+																estar logueado para comentar!</a>
+															<% } %>
+																<hr>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- /product detail -->
-					<%- include("./partials/footer") %>
+						<!-- /product detail -->
+						<%- include("./partials/footer") %>
 
-
-	</body>
+</body>
 
 </html>
